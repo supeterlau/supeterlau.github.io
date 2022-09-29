@@ -2,7 +2,7 @@
 author = "PeterLau"
 title = "PostgreSQL Logical Replication with Docker and Elixir"
 date = "2022-09-29"
-description = "Guide to emoji usage in Hugo"
+description = "postgresql, logical replication, docker, elixir, wal2json"
 tags = [
   "pg",
   "elixir",

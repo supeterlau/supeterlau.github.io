@@ -1,6 +1,15 @@
 ---
 title: "Hugo"
 date: 2022-09-30T04:17:20+08:00
+description: "Notes of Hugo"
+tags: [
+  "hugo",
+  "ssg",
+  "jamstack"
+]
+categories: [
+  "note"
+]
 draft: true
 ---
 
