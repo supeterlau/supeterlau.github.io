@@ -1,0 +1,70 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap'); */
+@import url("https://fonts.font.im/css2?family=Bree+Serif&display=swap");
+
+:root {
+  --fonts-serif: Bree Bold, PMingLiu, "Times New Roman", "Noto Serif CJK",
+    STSong, SimSun, serif;
+  --color-fav-2: #4652ed;
+}
+
+.content p,
+.content code {
+  line-height: 1.44;
+}
+
+code {
+  word-break: break-all;
+  white-space: break-spaces;
+}
+
+.header {
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.header .menu {
+  flex: 1;
+  justify-content: space-between;
+}
+
+.header .menu .menu-left {
+  display: flex;
+  gap: 20px;
+}
+
+.content img {
+  width: 70%;
+  margin: 0 15%;
+}
+
+.content .anchor {
+  visibility: visible;
+}
+
+.main {
+  height: auto;
+}
+.max-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item {
+  background-color: whitesmoke;
+  padding: 10px 15px;
+}
+
+.list-item p {
+  margin: 0.5rem 0;
+}
+
+.list-item:last-child {
+  padding-bottom: 10px !important;
+}
+
+.list-item:first-child {
+  padding-top: 10px !important;
+}
+#list-page {
+  flex: 1;
+}
