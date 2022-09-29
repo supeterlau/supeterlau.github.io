@@ -10,12 +10,20 @@ tags: [
 categories: [
   "note"
 ]
-draft: true
+draft: false
 ---
 
 a fast static site generator.
 
 <!--more-->
+
+### Google Font
+
+``` javascript
+"https://google-fonts.mirrors.sjtug.sjtu.edu.cn/css?family=Roboto",
+"https://fonts.font.im/css?family=Roboto",
+```
+  
 ### Comment
 
 https://utteranc.es/
