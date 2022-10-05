@@ -27,6 +27,7 @@ tabWidth = 2
 [params]
 mainSections = ['posts']
 show_comments = true
+ga = 'G-YEDG0XLC2T'
 
 ## uncomment belows and set proper values to enable remark42
 # [params.remark42]
@@ -57,8 +58,10 @@ url = "https://gohugo.io"
 pre = "Powered by <a href=\"https://gohugo.io\">Hugo</a>"
 [[params.footer_rows.items]]
 name = "theme flat"
-url = "https://github.com/fayemini/hugo-theme-flat.git"
-pre = "Theme <a href=\"https://github.com/fayemini/hugo-theme-flat\">hugo-theme-flat</a>"
+# url = "https://github.com/fayemini/hugo-theme-flat.git"
+# pre = "Theme <a href=\"https://github.com/fayemini/hugo-theme-flat\">hugo-theme-flat</a>"
+url = "https://github.com/leafee98/hugo-theme-flat.git"
+pre = "Theme <a href=\"https://github.com/leafee98/hugo-theme-flat\">hugo-theme-flat</a>"
 
 
 [[menus.left]]
@@ -77,8 +80,8 @@ url = ""
 weight = 40
 
 [[menus.right]]
-pageref = "about"
-name = "About"
+pageref = "contact"
+name = "Contact"
 weight = 80
 
 # 2-level sub menus are supported
