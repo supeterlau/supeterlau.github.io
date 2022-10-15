@@ -232,7 +232,7 @@ end
 Process.sleep(:infinity)
 ```
 
-To access the lr_default network in docker, start  a Elixir Docker Container in path /app and link to the lr_default network:
+To access the lr_default network in docker, start an Elixir Docker Container in path /app and link to the lr_default network:
 
 ``` bash
 docker run -it --rm --network lr_default --link lr-pg1-1:postgres -v $PWD:/app elixir:alpine sh
