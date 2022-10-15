@@ -152,7 +152,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nc">Process&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sleep&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="ss">:infinity&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To access the lr_default network in docker, start a Elixir Docker Container in path /app and link to the lr_default network:&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To access the lr_default network in docker, start an Elixir Docker Container in path /app and link to the lr_default network:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker run -it --rm --network lr_default --link lr-pg1-1:postgres -v &lt;span class="nv">$PWD&lt;/span>:/app elixir:alpine sh
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sh#: &lt;span class="nb">cd&lt;/span> /app
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sh#: mix run try_pg.ex
