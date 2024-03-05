@@ -51,7 +51,7 @@ theme = 'github-light'
 [[params.footer_rows.items]]
 name = "Creative Commons Attribution 4.0 International"
 url = "https://creativecommons.org/licenses/by/4.0/"
-pre = "Copyright <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY-4.0</a> 2022"
+pre = "Copyright <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY-4.0</a> 2024"
 
 [[params.footer_rows]]
 [[params.footer_rows.items]]
