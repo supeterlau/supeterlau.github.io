@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+# /bin/ls -lt --time=birth
+# bad version
+/usr/bin/env ls -l --time=birth ./content/posts| awk -F':[0-9]* ' '/:/{print $2}'

@@ -1,0 +1,72 @@
+---
+public interface I操作符 //谁说代码不能写中文的？恩恩
+    {
+        double 运算(double x, double y);
+    }
+   
+    public class OO_Calculator
+    {
+        private I操作符 m_op;
+        public OO_Calculator(I操作符 op)
+        {
+            this.m_op = op; //依赖注入【注2】
+        }
+       
+        public double Foo(double x, double y)
+        {
+            return this.m_op.运算(x, y);
+        }
+    }
+   
+    public class 加法:I操作符
+    {
+        public double 运算(double x, double y)
+        {
+            return x + y;
+        }
+    }
+   
+    public class 减法:I操作符
+    {
+        public double 运算(double x, double y)
+        {
+            return x - y;
+        }
+    }
+   
+    public class 乘法:I操作符
+    {
+        public double 运算(double x, double y)
+        {
+            return x * y;
+        }
+    }
+   
+    public class 除法:I操作符
+    {
+        public double 运算(double x, double y)
+        {
+            return x / y;
+        }
+    }
+   
+    public class TheMainClass
+    {
+        static public void Main()
+        {
+            I操作符 我的加法 = new 加法();
+            OO_Calculator 我的加法器 = new OO_Calculator(我的加法);
+            double sum  = 我的加法器.Foo(3, 4);
+            System.Console.WriteLine(sum);
+            //sum = 7
+           
+            //其他3个我就不废话了
+        }
+    }
+    
+    
+(define (Foo op x y)
+  (op x y))
+  
+def foo(op, x, y):
+    print eval("%d%s%d" % (x, op, y))

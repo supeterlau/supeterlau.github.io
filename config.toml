@@ -7,6 +7,8 @@ enableRobotsTXT = true
 hasCJKLanguage = true
 paginate = 6
 
+ignorefiles = [ "_draft/.*" ]
+
 # these values are hugo built in markup config
 [markup.highlight]
 anchorLineNos = false
@@ -96,3 +98,18 @@ weight = 80
 # parent = "Services"
 # name = "Service B"
 # url = "#"
+
+defaultContentLanguage = "en"
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+    description = "Blog about Hugo, web design, CSS/SCSS, SEO, Tools"
+    mydomain = "peterlau.xyz"
+		# contentDir = "content/posts/en"
+  [languages.zh]
+	  title = "码雾"
+    languageName = "Chinese"
+    weight = 2
+    mydomain = "peterlau.xyz/zh"
+		# contentDir = "content/posts/zh"

@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+# hugo new posts/$(date +"%Y-%m-%d")$1
+[[ -z $2 ]] && ext=".md" || ext=".$2.md"
+HUGO_FILE=posts/$(date +"%Y-%m-%d")-$1$ext
+POST_PATH=$(pwd)/content/$HUGO_FILE
+if [[ -f $POST_PATH ]]; then
+	# echo "post exists, open to edit post? [y]"
+	read -p "Hugo Post exists, open it to edit? [y]" choose
+	choose=${choose:-y}
+	if [[ $choose == 'y' ]]; then
+		echo "Post exists. Opening..."
+		vim $POST_PATH
+	else
+		echo "Post exists. Do nothing."
+	fi
+else
+  hugo new $HUGO_FILE
+	read -p "Hugo Post created, open it to edit? [y]" choose
+	choose=${choose:-y}
+	if [[ $choose == 'y' ]]; then
+		echo "Opening..."
+		vim $POST_PATH
+	else
+		echo "Do nothing."
+	fi
+
+fi

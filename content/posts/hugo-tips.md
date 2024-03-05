@@ -1,5 +1,5 @@
 ---
-title: "Hugo"
+title: "Hugo Tips"
 date: 2022-09-30T04:17:20+08:00
 description: "Notes of Hugo"
 tags: [
@@ -17,6 +17,12 @@ a fast static site generator.
 
 <!--more-->
 
+- ignore files 
+
+	https://discourse.gohugo.io/t/ignore-a-directory/8880
+	
+	ignorefiles = [ "docs/.*" ]
+	
 ### Google Font
 
 ``` javascript
