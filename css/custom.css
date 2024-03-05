@@ -1,9 +1,9 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap'); */
-@import url("https://fonts.font.im/css2?family=Bree+Serif&display=swap");
+@import url('https://fonts.font.im/css2?family=Bree+Serif&display=swap');
 
 :root {
-  --fonts-serif: Bree Bold, PMingLiu, "Times New Roman", "Noto Serif CJK",
-    STSong, SimSun, serif;
+  /* --fonts-serif: Bree Bold, PMingLiu, "Times New Roman", "Noto Serif CJK", STSong, SimSun, serif; */
+  --fonts-serif: Nunito, 'Open Sans', 'Roboto', 'Open Sans', sans-serif;
   --color-fav-2: #4652ed;
 }
 

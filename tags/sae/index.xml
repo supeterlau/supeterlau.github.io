@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sae on CodeMist</title><link>https://www.peterlau.xyz/tags/sae/</link><description>Recent content in sae on CodeMist</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 10 Sep 2014 15:09:30 +0000</lastBuildDate><atom:link href="https://www.peterlau.xyz/tags/sae/index.xml" rel="self" type="application/rss+xml"/><item><title>新浪云平台使用Django填坑指南</title><link>https://www.peterlau.xyz/posts/have-fun-with-django-on-sae/</link><pubDate>Wed, 10 Sep 2014 15:09:30 +0000</pubDate><guid>https://www.peterlau.xyz/posts/have-fun-with-django-on-sae/</guid><description> &lt;h2 id="新浪云平台使用手册">新浪云平台使用手册 &lt;a href="#%e6%96%b0%e6%b5%aa%e4%ba%91%e5%b9%b3%e5%8f%b0%e4%bd%bf%e7%94%a8%e6%89%8b%e5%86%8c" class="anchor">🔗&lt;/a>&lt;/h2>&lt;p>&lt;a href="http://sae.sina.com.cn/doc/python/index.html">for python&lt;/a>&lt;/p>
+&lt;p>注意 django 的开发框架默认是 1.4 的, 如果你已经安装了 1.6 甚至 1.7 怎么办呢?&lt;/p>
+&lt;p>当然用 virtualenv + virtualenvwrapper 咯&lt;/p>
+&lt;p>使用 &lt;code>pip install virtualenvwrapper&lt;/code> 在环境配置文件 &lt;code>$HOME/.bashrc&lt;/code> 中添加 &lt;code>source /usr/local/bin/virtualenvwrapper.sh&lt;/code> 然后 &lt;code>mkvirtualenv&lt;/code> 命令创建新环境 比如 &lt;strong>django14&lt;/strong> 这样将在 $HOME/.virtualenvis/ 中建立隔离的开发环境&lt;/p>
+&lt;blockquote>
+&lt;p>切换环境&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;ul>
+&lt;li>workon [env]&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>随时使用“workon 环境名”可以进行环境切换，如果不带环境名参数，则显示当前使用的环境&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;ul>
+&lt;li>deactivate&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>在某个环境中使用，切换到系统的python环境&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> 其他命令
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - showvirtualenv [env] 显示指定环境的详情。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - rmvirtualenv [env] 移除指定的虚拟环境，移除的前提是当前没有在该环境中工作。如在该环境工作，先使用deactivate退出。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - cpvirtualenv [source] [dest] 复制一份虚拟环境。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - cdvirtualenv [subdir] 把当前工作目录设置为所在的环境目录。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - cdsitepackages [subdir] 把当前工作目录设置为所在环境的sitepackages路径。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - add2virtualenv [dir] [dir] 把指定的目录加入当前使用的环境的path中，这常使用于在多个project里面同时使用一个较大的库的情况。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - toggleglobalsitepackages -q 控制当前的环境是否使用全局的sitepackages目录。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;p>接下来使用 django14 环境中的 django-admin.py 创建项目&lt;/p>
+&lt;p>&lt;code> ~/.virtualenvs/django14/bin/django-admin.py startproject djangosite&lt;/code>&lt;/p>
+&lt;h2 id="sae_restful_mysql-问题">sae._restful_mysql 问题 &lt;a href="#sae_restful_mysql-%e9%97%ae%e9%a2%98" class="anchor">🔗&lt;/a>&lt;/h2>&lt;p>本身用于在本地直接生成远端数据库表的库, 需要安装 sae-python-dev 直接 pip install sae-python-dev 即可&lt;/p>
+&lt;p>在本地使用 python manager.py syncdb 就可以创建远端数据库表了&lt;/p>
+&lt;p>本地创建完了, 是不是挺高兴, 但是上传到 SAE 就会提示 找不到 _restful_mysql 为何?&lt;/p>
+&lt;p>可见 sae-python-dev 是作为第三方库提供的. 因此或者用&lt;a href="http://sae.sina.com.cn/doc/python/faq.html">安装第三方库的方法&lt;/a>或者上传前注释掉这两句&lt;/p>
+&lt;p>PS: 使用 django1.6 实际是可以用的, 甚至不需要这个 monkey 就可以在远端创建表, 看来 SAE 已经更新了版本了?&lt;/p>
+&lt;p>PSS: 总之, 已经可以在 SAE 上开发带数据库支持的 Django 应用了. 让我们开始海盗之旅咯&lt;/p></description></item></channel></rss>

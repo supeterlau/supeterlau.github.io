@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dart on CodeMist</title><link>https://www.peterlau.xyz/categories/dart/</link><description>Recent content in Dart on CodeMist</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 14 Jul 2018 00:54:31 +0800</lastBuildDate><atom:link href="https://www.peterlau.xyz/categories/dart/index.xml" rel="self" type="application/rss+xml"/><item><title>macOS 下安装或更新 Dart 到最新版本</title><link>https://www.peterlau.xyz/posts/2018-07-14-macos-brew-dart/</link><pubDate>Sat, 14 Jul 2018 00:54:31 +0800</pubDate><guid>https://www.peterlau.xyz/posts/2018-07-14-macos-brew-dart/</guid><description> &lt;p>首先检查 macOS 系统是否有&lt;/p>
+&lt;p>&lt;code>/usr/local/Homebrew/Library/Taps/dart-lang/homebrew-dart&lt;/code>。&lt;/p>
+&lt;p>如果没有就执行&lt;/p>
+&lt;p>&lt;code>brew tap dart-lang/dart&lt;/code>，&lt;/p>
+&lt;p>然后进入 &lt;code>homebrew-dart&lt;/code>：&lt;/p>
+&lt;p>&lt;code>cd /usr/local/Homebrew/Library/Taps/dart-lang/homebrew-dart&lt;/code>。&lt;/p>
+&lt;p>将 &lt;code>dart.rb&lt;/code>、&lt;code>dart@1.rb&lt;/code>、&lt;code>dart@2.rb&lt;/code> 中的 &lt;code>storage.googleapis.com&lt;/code> 替换为 &lt;code>storage.flutter-io.cn&lt;/code>。&lt;/p>
+&lt;p>然后运行&lt;/p>
+&lt;p>&lt;code>brew install dart --devel&lt;/code> 或 &lt;code>brew upgrade dart --devel --force&lt;/code> 安装最新的 Dart，&lt;/p>
+&lt;p>最后用 &lt;code>dart --version&lt;/code> 验证安装结果。&lt;/p></description></item></channel></rss>

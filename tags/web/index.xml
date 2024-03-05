@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>web on CodeMist</title><link>https://www.peterlau.xyz/tags/web/</link><description>Recent content in web on CodeMist</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 14 Nov 2014 21:41:37 +0000</lastBuildDate><atom:link href="https://www.peterlau.xyz/tags/web/index.xml" rel="self" type="application/rss+xml"/><item><title>使用PHP开发网站的业余选手感想</title><link>https://www.peterlau.xyz/posts/use-php-make-a-website/</link><pubDate>Fri, 14 Nov 2014 21:41:37 +0000</pubDate><guid>https://www.peterlau.xyz/posts/use-php-make-a-website/</guid><description> &lt;p>这是个疯狂的时代. 自从 Facebook 诞生以来, 地球上出现了太多语言可以编写网页应用. 从保罗格雷厄姆推崇的 LISP/Arc 到最近的新生语言 Go. 其中最成功的当属 PHP.看看当下培训机构的火爆就可以知道, 而且国内各大网络服务招募的也都是 PHP 方面的人. 从百度到阿里, 从新兴小米到创业机构, 似乎 Python/Ruby/Node 这些新成员没有分走太多份额, 加上 ASP.net 和 Java. 这才是三强争霸. PHP 的语言特色并不为人推崇, 但其快速部署, 便于发布的特色决定了其流行度.&lt;/p>
+&lt;p>PHP 的语法并不复杂, 就像是脚本化的 C 语言, 只需要一台支持 PHP 解析的服务器, 放上代码, 设置好域名, OK 一切就绪, 项目上线了.&lt;/p>
+&lt;p>随着时间发展, PHP 也变得更加模块化和组件化. 纷杂的框架往往扰乱了人们对于语法的了解, 在我看来最佳的学习地方就是官网.&lt;/p>
+&lt;p>PHP5 开始有了面向对象语法. 支持封装, 继承. 然而在我看来正常的流程是先过程式, 再面向对象化, 至于函数式编程更像是一种代码书写风格而非组织风格. 使用过程式写了很多代码多次重复了自己以后, 就更能体会到面向对象的好处, 代码复用.&lt;/p>
+&lt;p>APEC 会议给我们放了一周假期, 因此我就抽了两天时间体验了下 PHP 直接写网站的酸爽. 服务器不用管; 页面渲染, PHP 内嵌入 HTML; 数据库连接, &lt;code>mysql_connect()&lt;/code>; Cookie管理, &lt;code>$_Cookie[]&lt;/code>; GET 和 POST, &lt;code>$_GET[] $_POST[]&lt;/code>; 一个基本的网站就是需要这些部分. 其中发现自己写一个页面还好, 多页面就无法控制那么多的变量名. 到这里, 基本的后端/服务端就做完了.&lt;/p>
+&lt;p>当然也仅仅是基本能用, 很多验证, 异常处理都没有, 也没有测试, 模块化. 基本的增删改查就用掉了两天时间. 这就是框架的威力, PHP 的框架超级之多, 我使用过 Yii, CI 和 CakePHP, 魔法一样的数据库操作, 快捷但很迷惑. 最后我计划找时间看下cakephp,yii 以及Lavreal. Lavreal看起来才是像是现代框架, 很迷人.&lt;/p>
+&lt;p>再说说最近对Web开发的体会. 基本上已经完成了 页面显示, 页面逻辑, 后台数据的分离. 服务端使用各种服务器语言, 应用端采用 AngularJS等前端框架, 显示层使用 ReactJS, HTMLCSS框架使用Bootstrap/Pure/Amaze等UI框架. 这也是我以后学习的方向.&lt;/p>
+&lt;p>update 2014-11-16&lt;/p>
+&lt;p>目前还在写那个答题网站的后台管理, 我也发现了 PHP 的面向对象是如此重要的, 希望能够找到实现类似多参数, 具名参数的写法. 数据库模块还是用的已经废弃的接口, 而且还有很多数据库的知识不具备. 有时间再替换用上 PDO 吧.&lt;/p>
+&lt;p>最近一直是在处理序列数据, 希望能够有更多时间写代码啊. 试用了一下 CakePHP 都跟 ROR 学习的 脚手架吗? 直接就产生了 model view controller, 打算用着个开发个小应用吧. 恩&lt;/p></description></item><item><title>开始使用Docker</title><link>https://www.peterlau.xyz/posts/docker-newer/</link><pubDate>Fri, 05 Sep 2014 20:16:09 +0000</pubDate><guid>https://www.peterlau.xyz/posts/docker-newer/</guid><description> &lt;h1 id="什么是-docker">什么是 Docker? &lt;a href="#%e4%bb%80%e4%b9%88%e6%98%af-docker" class="anchor">🔗&lt;/a>&lt;/h1>&lt;p>Go语言编写的应用容器.所谓应用容器,就是可以像虚拟机那样下载下来,已经配置好大部分的开发环境(比如有了一些 Python 包, Gem 装好了一部分).新一代的一次构建到处运行.据说开始是基于 LXC ,这个还没有研究.不过已经宣布将来不再依赖这个, 而是变成可插拔的插件, 插件流行啊.&lt;/p>
+&lt;p>这货像是个虚拟机,但不带图形界面,当然对我这种命令控没影响.说起来像是通过 SSH 访问Vbox.&lt;/p>
+&lt;h1 id="开始使用">开始使用 &lt;a href="#%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8" class="anchor">🔗&lt;/a>&lt;/h1>&lt;p>注册 docker.io dockerhub 帐号 不注册也可以用&amp;hellip;&lt;/p>
+&lt;ol>
+&lt;li>curl -s &lt;a href="https://get.docker.io/ubuntu/">https://get.docker.io/ubuntu/&lt;/a> | sudo sh&lt;/li>
+&lt;li>sudo docker run -i -t ubuntu /bin/bash&lt;/li>
+&lt;/ol>
+&lt;p>下载的是一个ubuntu镜像 或者 ubuntu:14.04 指定是 14.04 版本&lt;/p>
+&lt;p>下载后的镜像称为容器, 在容器内可以运行应用如 bash&lt;/p>
+&lt;ol start="3">
+&lt;li>sudo docker run ubuntu:14.04 /bin/echo &amp;lsquo;Hello world&amp;rsquo;&lt;/li>
+&lt;/ol>
+&lt;p>输出 Hello world 在容器内执行, 返回结果&lt;/p>
+&lt;ol start="4">
+&lt;li>sudo docker run -t -i ubuntu:14.04 /bin/bash&lt;/li>
+&lt;/ol>
+&lt;p>执行交互式容器, 不过是在14.04版本中运行的&lt;/p>
+&lt;ol start="5">
+&lt;li>每次 docker run 的时候就是通过一个镜像创建了一个容器, 如后台容器&lt;/li>
+&lt;/ol>
+&lt;p>守护进程 sudo docker run -d ubuntu:14.04 /bin/sh -c &amp;ldquo;while true; do echo hello world; sleep 1; done&amp;rdquo;&lt;/p>
+&lt;p>脚本会一直输出&amp;quot;hello word&amp;quot;&lt;/p>
+&lt;p>只有通过 sudo docker ps 查看后台进程找到指代名称&lt;/p>
+&lt;p>然后用 sudo docker log short-name 查看结果&lt;/p>
+&lt;ol start="6">
+&lt;li>
+&lt;p>sudo docker stop 结束这个后台&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>只输入docker没有任何其它选项来查看docker客户端所有的命令&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>输入Docker [command]，这里会看到docker命令的使用方法：&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>$ sudo docker attach&lt;/p>
+&lt;ol start="9">
+&lt;li>sudo docker run -d -P training/webapp python app.py&lt;/li>
+&lt;/ol>
+&lt;p>-d 后台执行&lt;/p>
+&lt;p>-P docker网络端口从主机映射到容器&lt;/p>
+&lt;p>training/webapp 指定镜像&lt;/p>
+&lt;p>python 容器&lt;/p>
+&lt;p>see ubuntu version:
+cat /etc/issue
+see whoami
+whoami&lt;/p>
+&lt;ol start="10">
+&lt;li>查看web应用容器&lt;/li>
+&lt;/ol>
+&lt;p>sudo docker ps -l # -l 返回最后的容器状态&lt;/p>
+&lt;p>CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+9a57847b4be6 training/webapp:latest &amp;ldquo;python app.py&amp;rdquo; 5 minutes ago Up 5 minutes 0.0.0.0:49153-&amp;gt;5000/tcp trusting_sammet&lt;/p>
+&lt;p>容器开启 5000(python) 端口映射到主机 49153 上&lt;/p>
+&lt;p>可以访问 localhost:49153 到容器的webapp上&lt;/p>
+&lt;ol start="11">
+&lt;li>使用docker port可以指定容器ID或者名字映射到主机端的端口号&lt;/li>
+&lt;/ol>
+&lt;p>sudo docker port nostalgic_morse 5000&lt;/p>
+&lt;p>查看到端口5000映射到容器外的主机端口&lt;/p>
+&lt;ol start="12">
+&lt;li>sudo docker logs -f hungry_stallman&lt;/li>
+&lt;/ol>
+&lt;p>查看容器内应用发生的日志&lt;/p>
+&lt;ol start="13">
+&lt;li>sudo docker top hungry_stallman&lt;/li>
+&lt;/ol>
+&lt;p>查看应用的过程&lt;/p>
+&lt;ol start="14">
+&lt;li>
+&lt;p>使用docker inspect来查看Docker的底层信息。它会返回一个JSON文件记录docker容器的配置和状态信息&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo docker stop hungry_stallman&lt;/p>
+&lt;p>停止容器&lt;/p>
+&lt;p>sudo docker start hungry_stallman&lt;/p>
+&lt;p>重启容器&lt;/p>
+&lt;p>sudo docker rm hungry_stallman&lt;/p>
+&lt;p>删除容器 == 我们不能删除正在运行的容器&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>获取一个新的镜像&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>sudo docker run -t -i training/sinatra /bin/bash&lt;/p>
+&lt;p>进入容器的bash中&lt;/p>
+&lt;ol start="17">
+&lt;li>&lt;/li>
+&lt;/ol>
+&lt;p>运行一个带标签镜像的容器：&lt;/p>
+&lt;p>$ sudo docker run -t -i ubuntu:14.04 /bin/bash&lt;/p>
+&lt;p>例如你只使用Ubuntu，Docker将默认使用Ubuntu:latest镜像。&lt;/p>
+&lt;ol start="18">
+&lt;li>
+&lt;p>sudo docker pull centos 获取新镜像&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如何把多个docker容器连接在一起构建一个完整的应用程序&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;em>HOWTO&lt;/em> 退出docker 保留docker配置&amp;hellip;&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>一开始想着试试 perl6 呢,谁知道配置好 vim (对的, vim 都没有, 也没有图形界面 啊) 退出以后就一切重置了, 难道要按照 DOCKERFILE 什么的步骤走吗??? 以后再看吧. Perl 看来得再找时间看看了.&lt;/p></description></item></channel></rss>

@@ -1,1 +1,104 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>docker on CodeMist</title><link>https://www.peterlau.xyz/tags/docker/</link><description>Recent content in docker on CodeMist</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.peterlau.xyz/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>PostgreSQL Logical Replication with Docker and Elixir</title><link>https://www.peterlau.xyz/posts/postgresql-logical-replication-with-docker-and-elixir/</link><pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.peterlau.xyz/posts/postgresql-logical-replication-with-docker-and-elixir/</guid><description>postgresql, logical replication, docker, elixir, wal2json</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>docker on CodeMist</title><link>https://www.peterlau.xyz/tags/docker/</link><description>Recent content in docker on CodeMist</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.peterlau.xyz/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>PostgreSQL Logical Replication with Docker and Elixir</title><link>https://www.peterlau.xyz/posts/postgresql-logical-replication-with-docker-and-elixir/</link><pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.peterlau.xyz/posts/postgresql-logical-replication-with-docker-and-elixir/</guid><description>postgresql, logical replication, docker, elixir, wal2json</description></item><item><title>开始使用Docker</title><link>https://www.peterlau.xyz/posts/docker-newer/</link><pubDate>Fri, 05 Sep 2014 20:16:09 +0000</pubDate><guid>https://www.peterlau.xyz/posts/docker-newer/</guid><description> &lt;h1 id="什么是-docker">什么是 Docker? &lt;a href="#%e4%bb%80%e4%b9%88%e6%98%af-docker" class="anchor">🔗&lt;/a>&lt;/h1>&lt;p>Go语言编写的应用容器.所谓应用容器,就是可以像虚拟机那样下载下来,已经配置好大部分的开发环境(比如有了一些 Python 包, Gem 装好了一部分).新一代的一次构建到处运行.据说开始是基于 LXC ,这个还没有研究.不过已经宣布将来不再依赖这个, 而是变成可插拔的插件, 插件流行啊.&lt;/p>
+&lt;p>这货像是个虚拟机,但不带图形界面,当然对我这种命令控没影响.说起来像是通过 SSH 访问Vbox.&lt;/p>
+&lt;h1 id="开始使用">开始使用 &lt;a href="#%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8" class="anchor">🔗&lt;/a>&lt;/h1>&lt;p>注册 docker.io dockerhub 帐号 不注册也可以用&amp;hellip;&lt;/p>
+&lt;ol>
+&lt;li>curl -s &lt;a href="https://get.docker.io/ubuntu/">https://get.docker.io/ubuntu/&lt;/a> | sudo sh&lt;/li>
+&lt;li>sudo docker run -i -t ubuntu /bin/bash&lt;/li>
+&lt;/ol>
+&lt;p>下载的是一个ubuntu镜像 或者 ubuntu:14.04 指定是 14.04 版本&lt;/p>
+&lt;p>下载后的镜像称为容器, 在容器内可以运行应用如 bash&lt;/p>
+&lt;ol start="3">
+&lt;li>sudo docker run ubuntu:14.04 /bin/echo &amp;lsquo;Hello world&amp;rsquo;&lt;/li>
+&lt;/ol>
+&lt;p>输出 Hello world 在容器内执行, 返回结果&lt;/p>
+&lt;ol start="4">
+&lt;li>sudo docker run -t -i ubuntu:14.04 /bin/bash&lt;/li>
+&lt;/ol>
+&lt;p>执行交互式容器, 不过是在14.04版本中运行的&lt;/p>
+&lt;ol start="5">
+&lt;li>每次 docker run 的时候就是通过一个镜像创建了一个容器, 如后台容器&lt;/li>
+&lt;/ol>
+&lt;p>守护进程 sudo docker run -d ubuntu:14.04 /bin/sh -c &amp;ldquo;while true; do echo hello world; sleep 1; done&amp;rdquo;&lt;/p>
+&lt;p>脚本会一直输出&amp;quot;hello word&amp;quot;&lt;/p>
+&lt;p>只有通过 sudo docker ps 查看后台进程找到指代名称&lt;/p>
+&lt;p>然后用 sudo docker log short-name 查看结果&lt;/p>
+&lt;ol start="6">
+&lt;li>
+&lt;p>sudo docker stop 结束这个后台&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>只输入docker没有任何其它选项来查看docker客户端所有的命令&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>输入Docker [command]，这里会看到docker命令的使用方法：&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>$ sudo docker attach&lt;/p>
+&lt;ol start="9">
+&lt;li>sudo docker run -d -P training/webapp python app.py&lt;/li>
+&lt;/ol>
+&lt;p>-d 后台执行&lt;/p>
+&lt;p>-P docker网络端口从主机映射到容器&lt;/p>
+&lt;p>training/webapp 指定镜像&lt;/p>
+&lt;p>python 容器&lt;/p>
+&lt;p>see ubuntu version:
+cat /etc/issue
+see whoami
+whoami&lt;/p>
+&lt;ol start="10">
+&lt;li>查看web应用容器&lt;/li>
+&lt;/ol>
+&lt;p>sudo docker ps -l # -l 返回最后的容器状态&lt;/p>
+&lt;p>CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+9a57847b4be6 training/webapp:latest &amp;ldquo;python app.py&amp;rdquo; 5 minutes ago Up 5 minutes 0.0.0.0:49153-&amp;gt;5000/tcp trusting_sammet&lt;/p>
+&lt;p>容器开启 5000(python) 端口映射到主机 49153 上&lt;/p>
+&lt;p>可以访问 localhost:49153 到容器的webapp上&lt;/p>
+&lt;ol start="11">
+&lt;li>使用docker port可以指定容器ID或者名字映射到主机端的端口号&lt;/li>
+&lt;/ol>
+&lt;p>sudo docker port nostalgic_morse 5000&lt;/p>
+&lt;p>查看到端口5000映射到容器外的主机端口&lt;/p>
+&lt;ol start="12">
+&lt;li>sudo docker logs -f hungry_stallman&lt;/li>
+&lt;/ol>
+&lt;p>查看容器内应用发生的日志&lt;/p>
+&lt;ol start="13">
+&lt;li>sudo docker top hungry_stallman&lt;/li>
+&lt;/ol>
+&lt;p>查看应用的过程&lt;/p>
+&lt;ol start="14">
+&lt;li>
+&lt;p>使用docker inspect来查看Docker的底层信息。它会返回一个JSON文件记录docker容器的配置和状态信息&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo docker stop hungry_stallman&lt;/p>
+&lt;p>停止容器&lt;/p>
+&lt;p>sudo docker start hungry_stallman&lt;/p>
+&lt;p>重启容器&lt;/p>
+&lt;p>sudo docker rm hungry_stallman&lt;/p>
+&lt;p>删除容器 == 我们不能删除正在运行的容器&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>获取一个新的镜像&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>sudo docker run -t -i training/sinatra /bin/bash&lt;/p>
+&lt;p>进入容器的bash中&lt;/p>
+&lt;ol start="17">
+&lt;li>&lt;/li>
+&lt;/ol>
+&lt;p>运行一个带标签镜像的容器：&lt;/p>
+&lt;p>$ sudo docker run -t -i ubuntu:14.04 /bin/bash&lt;/p>
+&lt;p>例如你只使用Ubuntu，Docker将默认使用Ubuntu:latest镜像。&lt;/p>
+&lt;ol start="18">
+&lt;li>
+&lt;p>sudo docker pull centos 获取新镜像&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如何把多个docker容器连接在一起构建一个完整的应用程序&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;em>HOWTO&lt;/em> 退出docker 保留docker配置&amp;hellip;&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>一开始想着试试 perl6 呢,谁知道配置好 vim (对的, vim 都没有, 也没有图形界面 啊) 退出以后就一切重置了, 难道要按照 DOCKERFILE 什么的步骤走吗??? 以后再看吧. Perl 看来得再找时间看看了.&lt;/p></description></item></channel></rss>

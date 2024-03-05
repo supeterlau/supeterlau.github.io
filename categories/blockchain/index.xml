@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blockchain on CodeMist</title><link>https://www.peterlau.xyz/categories/blockchain/</link><description>Recent content in blockchain on CodeMist</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 29 Jun 2018 13:34:25 +0800</lastBuildDate><atom:link href="https://www.peterlau.xyz/categories/blockchain/index.xml" rel="self" type="application/rss+xml"/><item><title>面向 Web 开发者的以太坊开发概览</title><link>https://www.peterlau.xyz/posts/2018-06-29-ethereum-for-web-developers/</link><pubDate>Fri, 29 Jun 2018 13:34:25 +0800</pubDate><guid>https://www.peterlau.xyz/posts/2018-06-29-ethereum-for-web-developers/</guid><description> &lt;p>我已经学习了一段时间的以太坊区块链平台，我学习的越多，以太坊就越让人兴奋。网上有各种各样学习以太坊的资源，很容易就信息过载。但是以太坊平台还在快速发展中，这些资源大部分都过期了。我花了些时间整理这些资源，才明白了什么是以太坊及以太坊是如何工作的。在与 meetup 群及其他线上社区的开发者交流过程中，我发现很多人想学习这个新技术，却遇到了我之前遇到的信息过多又过时的问题。我尝试在本文中，从 Web 开发者的角度解释以太坊。&lt;/p>
+&lt;p>如果你是一个 Web 开发者，你一定明白网络应用的客户端/服务器架构是如何工作的。&lt;/p>
+&lt;p>&lt;img src="http://paiockmru.bkt.clouddn.com/webapp-hosted-on-aws.png" alt="">&lt;/p>
+&lt;p>我们通常将自己的 Web 应用托管在主机提供商(如 AWS，Heroku 或者 VPS)上。所有的客户端都与这个中央应用交互。客户端可以是浏览器或其他使用服务的 api。当客户端访问服务器是，服务端请求数据库或缓存，读/写/更新数据库，响应客户端请求。这套架构大部分时间都能正常工作。但有时候，对于一些特定的 Web 应用，如果可以安全灵活地访问数据库，如不需要经过 Web 应用管理员同意就能访问属于自己的数据就更好了。&lt;/p>
+&lt;p>例如，你是 eBay 上一个有数百好评的热销卖家，因为一些原因你被 eBay 封号了，这会严重地影响你的生意。此时，如果你能够带着你已经获得的好评和客户迁移到其他平台(如 eBay 竞争者)就好了。eBay 通过成为卖家和买家之间的可信任第三方来提供服务，但它同时也从每笔交易中抽成。有没有一个方法，能够在买卖双方间干掉 eBay 来节省抽成费，同时你还能拥有自己的数据呢？现在就有一个实现这个目的的方法，那就是去中心化应用。以太坊就能够让开发 DApp (去中心化应用)非常简单。&lt;/p>
+&lt;p>让我们大致看下以太坊去中心化应用的架构。&lt;/p>
+&lt;p>&lt;img src="http://paiockmru.bkt.clouddn.com/dapp-hight-level.png" alt="">&lt;/p>
+&lt;p>你可能注意到了，每个客户端(浏览器)都与一个应用实例交互，没有一个所有应用都连接的中心化服务器。这意味着，任何一个想使用 DApp 的人，都需要在自己的电脑或手机上运行整个区块链拷贝。你需要先下载整个区块链才能开始使用 DApp。这个方法刚开始听起来很荒谬，但它的优势在于不需要依赖一个明天可能消失不见的中央服务器。&lt;/p>
+&lt;p>事实上你不需要花费太多的硬盘和内存来下载使用区块链。人们已经实现了很多优化方法，能够让应用在保持去中心化的同时也可以便捷地使用。&lt;/p>
+&lt;p>那么，以太坊中的区块链到底是什么？它包含以下几个部分:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>数据库:&lt;/p>
+&lt;p>每几个出现在以太坊网络中的交易被打包记录在区块中，每个区块都连接到下一个区块上。这些连接起来保存了全部交易记录的一系列区块就被称为区块链。回到上文的那个eBay 例子中，买卖双方的每笔交易，无论是付款，退款，争议都会被记录在区块链上，任何人都可以访问。以太坊使用一种叫做工作量证明的算法，确保以太坊网络中每个客户端节点都有相同的区块链拷贝。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>代码:&lt;/p>
+&lt;p>区块链的数据库部分仅仅保存数据。但是所有买卖取消交易退款的逻辑在哪里呢？在以太坊世界里，你要用一种叫做 &lt;a href="https://solidity.readthedocs.io/en/develop/">Solidity&lt;/a> 的语言来写应用代码(被称为合约)。随后你要用 Solidity 编译器把合约编译为以太坊字节码，再将字节码部署到区块链上。还有一些可以替代 Solidity 的语言，但到目前为止，Solidity 是区块链开发中最流行的语言。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>基本上可以说，区块链中保存你的数据，保存代码逻辑并在 EVM (以太坊虚拟机)中执行这些代码。&lt;/p>
+&lt;p>为了构建网页版 DApp，以太坊开发了一个方便的 JavaScript 库， &lt;a href="https://github.com/ethereum/web3.js/">web3.js&lt;/a>，它可以连接到你的区块链节点。你只需要在 angularjs，reactjs 等著名框架中引入它就可以开始开发 DApp 了。&lt;/p>
+&lt;p>另一个以太坊的重要特性是它的金融功能。如果我告诉你，你一开始使用 DApp 就会得到一个内置的银行账户，你会有什么反应？实际上，你不止得到一个银行账号，你可以在一秒内建立很多银行账号。这些银行账号被称为钱包，你可以它们用来储存钱(以太币 以太坊生态中使用的货币)和交易。&lt;/p>
+&lt;p>我故意省略了很多区块链的内部运行机制，因为我主要想集中对比常见的中心化应用与基于区块链的 DApp。希望这篇文章完成了这一目标，让你对以太坊是什么以及它如何被用来构建 DApp 有个大概的认识。&lt;/p>
+&lt;p>&lt;a href="https://medium.com/@mvmurthy/ethereum-for-web-developers-890be23d1d0c">原文链接&lt;/a>&lt;/p></description></item></channel></rss>

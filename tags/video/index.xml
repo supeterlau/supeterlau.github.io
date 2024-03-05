@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>video on CodeMist</title><link>https://www.peterlau.xyz/tags/video/</link><description>Recent content in video on CodeMist</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 18 Apr 2014 21:44:32 +0000</lastBuildDate><atom:link href="https://www.peterlau.xyz/tags/video/index.xml" rel="self" type="application/rss+xml"/><item><title>测试Hexo图片</title><link>https://www.peterlau.xyz/posts/test_hexo_image/</link><pubDate>Fri, 18 Apr 2014 21:44:32 +0000</pubDate><guid>https://www.peterlau.xyz/posts/test_hexo_image/</guid><description> &lt;h3 id="图片">图片 &lt;a href="#%e5%9b%be%e7%89%87" class="anchor">🔗&lt;/a>&lt;/h3>&lt;p>&lt;img src="http://t.williamgates.net/thumb-0DD4_53C7517B.jpg" alt="Something" title="GoodGirl">&lt;/p>
+&lt;p>&lt;code>&amp;lt;img src=&amp;quot;http://t.williamgates.net/thumb-0DD4_53C7517B.jpg&amp;quot; style=&amp;quot;width: 500&amp;quot;&amp;gt;&lt;/code>&lt;/p>
+&lt;p>hahaha&lt;/p>
+&lt;p>下一步就是拿flask写个图床放BAE上,搞定!!&lt;/p>
+&lt;h3 id="音频">音频 &lt;a href="#%e9%9f%b3%e9%a2%91" class="anchor">🔗&lt;/a>&lt;/h3>&lt;p>&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>html的方法 暴力&amp;hellip;&lt;/p>
+&lt;p>空这么大一块是由于 video-containter 的 css 造成的, 想修改就得看源码了, 留到以后用吧. 或者用 HTML5 解决.这个方法不错.&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-[html]" data-lang="[html]">&amp;lt;embed src=&amp;#34;http://www.xiami.com/widget/0_3515679/singlePlayer.swf&amp;#34; type=&amp;#34;application/x-shockwave-flash&amp;#34; width=&amp;#34;257&amp;#34; height=&amp;#34;33&amp;#34; wmode=&amp;#34;transparent&amp;#34;&amp;gt;&amp;lt;/embed&amp;gt;
+&lt;/code>&lt;/pre>&lt;h3 id="视频">视频 &lt;a href="#%e8%a7%86%e9%a2%91" class="anchor">🔗&lt;/a>&lt;/h3>&lt;!-- raw HTML omitted -->
+&lt;pre tabindex="0">&lt;code class="language-[html]" data-lang="[html]">&amp;lt;iframe height=498 width=510 src=&amp;#34;http://player.youku.com/embed/XMzEwNTgwMjI4&amp;#34; frameborder=0 allowfullscreen&amp;gt;&amp;lt;/iframe&amp;gt;
+&lt;/code>&lt;/pre>&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item></channel></rss>

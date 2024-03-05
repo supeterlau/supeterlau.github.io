@@ -1,0 +1,78 @@
+<!doctype html><html><head><title>如何编写 Go - Part2 完结篇 | CodeMist</title><meta charset=utf-8><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=keywords content><meta name=description content="Blog about Hugo, web design, CSS/SCSS, SEO, Tools"><link rel=stylesheet href=/lib/icofont/icofont.min.css><link rel=stylesheet href=/css/syntax.css><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/images/favicon.ico type=image/x-icon></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-YEDG0XLC2T"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-YEDG0XLC2T")</script><body><header class=header-wrapper><div class=header><a class=site-title href=https://www.peterlau.xyz>CodeMist</a><div class=menu><ul class=menu-left><li class=menu-item><a href=/posts/>Posts</a></li><li class=menu-item>"I saw the best minds of my generation destroyed by madness"</li></ul><div class=menu-right><li class=menu-item><a href=/contact/>Contact</a></li></div></div></div></header><main class=main-wrapper><div class=main><section class=single><h1 class=title>如何编写 Go - Part2 完结篇</h1><div class=tip><time datetime="2017-04-23 00:09:39 +0800 +0800">2017/04/23</time>
+<span class=split>·</span>
+<span>1287 words</span>
+<span class=split>·</span>
+<span>3 minutes to read</span></div><div class=taxonomies></div><hr><div class=content><blockquote><h2 id=第一个库>第一个库 <a href=#%e7%ac%ac%e4%b8%80%e4%b8%aa%e5%ba%93 class=anchor>🔗</a></h2></blockquote><p>我们将会写一个库并在 <code>hello</code> 程序中使用它。</p><p>第一步是选择一个包路径 (我们会使用 <code>github.com/user/stringutil</code> )并创建库文件夹:</p><pre><code>$ mkdir $GOPATH/src/github.com/user/stringutil
+</code></pre><p>下一步，在目录下创建叫做 <code>reverse.go</code> 的文件，并输入以下内容</p><pre><code>// Package returns its argument string reversed rune-wise left to right
+package stringutil
+
+// Reverse 按字符将参数 string 翻转
+func Reverse(s string) string {
+    r := []rune(s)
+    for i, j := 0, len(r)-1; i &lt; len(r)/2; i,j=i+1,j-1 {
+        r[i], r[j] = r[j], r[i]
+    }
+    return string(r)
+}
+</code></pre><p>现在，用 <code>go build</code> 来编译测试这个包:</p><pre><code>$ go build github.com/user/stringutil 
+</code></pre><p>如果你在包文件夹路径，可以只执行:</p><pre><code>$ go build
+</code></pre><p>这不会产生一个输出文件。你必须使用 <code>go install</code>，这可以将包对象放在工作空间的 <code>pkg</code> 文件夹下。</p><p>在确认 <code>stringutil</code> 包编译完成后， 修改你原始的 <code>hello.go</code> (位于 <code>$GOPATH/src/github.com/user/hello</code> 下) 来使用这个包:</p><pre><code>package main
+
+import (
+  &quot;fmt&quot;
+  &quot;github.com/user/stringutil&quot;
+)
+
+func main() {
+    fmt.Printf(stringutil.Reverse(&quot;!oG ,olleH&quot;))
+}
+</code></pre><p>每当 <code>go</code> 工具安装一个包或二进制文件时，它同时安装了这个包包含的依赖。 所以当你安装 hello program 时，</p><pre><code>$ go install github.com/user/hello
+</code></pre><p>stringutil 包会同时被自动安装。</p><p>运行新版本的程序，你会看到一个新的翻转的信息:</p><pre><code>$hello
+Hello, Go!
+</code></pre><p>完成以上步骤后，你的工作空间看起来像这样:</p><pre><code>bin/
+  hello
+pkg/
+  linux_amd64/      # 取决于你使用的操作系统和架构
+    github.com/user/
+      stringutil.a  # 包项目
+src/
+  github.com/user/
+    hello/
+      hello.go
+    stringutil/
+      reverse.go
+</code></pre><p>注意 <code>go install</code> 将 <code>stringutil.a</code> 放在 <code>pkg/linux_amd64</code> 下和源码路径一致的子文件夹下。这样方便 <code>go</code> 工具找到包文件从而避免重复编译这个包。 <code>linux_amd64</code> 这部分是为了辅助交叉编译，并会反映你的操作系统及系统架构。</p><p><code>Go</code> 可执行文件是静态链接的；运行 <code>Go</code> 程序不需要包文件。</p><blockquote><h2 id=包名>包名 <a href=#%e5%8c%85%e5%90%8d class=anchor>🔗</a></h2></blockquote><p><code>Go</code> 源代码第一行必须是 <code>package name</code>。 <code>name</code> 就是用来导入包的默认名字。(同一个包里的文件需要有相同的包名)。</p><p><code>Go</code> 中包名是导入路径最后一个元素: 作为 <code>"crypto/rot13"</code> 导入的包，包名是 <code>"rot13"</code>。</p><p>可执行命令必须使用 <code>main</code> 作为 <code>package name</code>。</p><p><code>Go</code> 不要求链接到一个二进制文件的包名不同，只需要导入路径唯一即可。</p><p>查看 <code>Effective Go</code> 来学习更多关于 <code>Go</code> 命名惯例的内容。</p><blockquote><h1 id=测试>测试 <a href=#%e6%b5%8b%e8%af%95 class=anchor>🔗</a></h1></blockquote><p><code>Go</code> 包含了一个由 <code>go test</code> 命令和 <code>testing</code> 包组成的轻量级测试框架。
+你通过创建一个以 <code>_test.go</code> 结尾的文件来写测试，文件中包含命名为 <code>TestXXX</code> 参数签名为 ( <code>t *testing.T</code> ) 的测试函数。测试框架执行每个这样的函数；如果函数调用了一个类似 <code>t.Error</code> 或 <code>t.Fail</code> 的失败函数，测试被认为未通过。
+创建文件 <code>$GOPATH/src/github.com/user/stringutil/reverse_test.go</code> 来添加测试到 <code>stringutil</code> 包，包含如下代码:</p><p>然后用 <code>go test</code> 来运行测试。</p><pre><code>$ go test github.com/user/stringutil
+ok github.com/user/stringutil 0.165s
+</code></pre><p>同样，如果你就在包路径下，可以直接执行:</p><pre><code>$ go test
+ok github.com/user/stringutil 0.165s
+</code></pre><p>执行 <code>go help test</code> 可以看到测试包的文档。</p><blockquote><h2 id=远程包>远程包 <a href=#%e8%bf%9c%e7%a8%8b%e5%8c%85 class=anchor>🔗</a></h2></blockquote><p>导入路径可以用来描述如何通过 Git 或 Mercurial 这样的版本控制系统来获取包源码。go 工具通过这个特性来从远端自动获取包。例如，本文档中的例子有个托管在 Github 上的 Git 仓库 <a href=https://github.com/golang/example>github.com/golang/example</a>。如果你在导入时加上这个仓库，go get 会自动获取，构建并安装这个包。</p><pre><code>$ go get github.com/golang/example/hello
+
+$ $GOPATH/bin/hello
+Hello，Go examples！
+</code></pre><p>如果特定的一个包没有在工作空间中，<code>go get</code> 会将它放在 <code>GOPATH</code> 指定的第一个工作空间。(如果这个包已经存在，那么 <code>go get</code> 会跳过获取远程代码，仅进行 <code>go install</code> 步骤)。</p><p>执行过上述的 <code>go get</code> 命令后，工作目录会变成一下结构:</p><pre><code>bin/
+  hello
+pkg/
+  linux_amd64/      # 取决于你使用的操作系统和架构
+    github.com/golang/example/
+      stringutil.a  # 包项目    
+    github.com/user/
+      stringutil.a  # 包项目
+src/
+  github.com/golang/example/
+    hello/
+      hello.go
+    stringutil/
+      reverse.go
+      reverse_test.go
+  github.com/user/
+    hello/
+      hello.go
+    stringutil/
+      reverse.go
+      reverse_test.go
+</code></pre><p>托管在 <code>GitHub</code> 上的 <code>hello</code> 命令依赖于同一个仓库里的 <code>stringutil</code> 包。<code>hello.go</code> 文件里导入包时使用了同样的导入规则，因此 <code>go get</code> 命令可以定位并安装这个依赖。</p><p><code>import "github.com/golang/example/stringutil"</code> 这种方法是使你的包可以被别人使用的最简单途径。 <code>Go Wiki</code> 和 <code>godoc.org</code> 提供了其他 <code>Go</code> 项目列表。</p><p>查看 <code>go help importpath</code> 来了解更多通过 <code>go tool</code> 使用远程仓库的信息。</p></div><hr><script src=https://utteranc.es/client.js repo=supeterlau/supeterlau.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script></section></div><div class=side><div class=side-recent><h2 class=side-title>Recent Posts</h2><hr><ul><li><a href=/posts/2023-06-05-emacs-tips/>Emacs Tips</a></li><li><a href=/posts/2023-06-05-ssh-tips/>SSH Tips</a></li><li><a href=/posts/hugo-tips/>Hugo Tips</a></li><li><a href=/posts/postgresql-logical-replication-with-docker-and-elixir/>PostgreSQL Logical Replication with Docker and Elixir</a></li><li><a href=/posts/missing-steps-of-heroku-docker/>Missing Steps of Heroku</a></li></ul></div><div class=side-categories><h2>Categories</h2><hr><ul><li><a href=/categories/ai>ai(1)</a></li><li><a href=/categories/blockchain>blockchain(1)</a></li><li><a href=/categories/dart>dart(1)</a></li><li><a href=/categories/dev>dev(3)</a></li><li><a href=/categories/note>note(1)</a></li></ul></div><div class=side-tags><h2>Tags</h2><hr><ul><li><a href=/tags/alasmixer>alasmixer (1)</a></li><li><a href=/tags/audio>audio (1)</a></li><li><a href=/tags/bash>bash (1)</a></li><li><a href=/tags/blog>blog (1)</a></li><li><a href=/tags/django>django (1)</a></li><li><a href=/tags/docker>docker (2)</a></li><li><a href=/tags/dota2>dota2 (1)</a></li><li><a href=/tags/elixir>elixir (1)</a></li><li><a href=/tags/ethereum>ethereum (1)</a></li><li><a href=/tags/flask>flask (1)</a></li><li><a href=/tags/go>go (1)</a></li><li><a href=/tags/goeast>goeast (1)</a></li><li><a href=/tags/hexo>hexo (3)</a></li><li><a href=/tags/hugo>hugo (1)</a></li><li><a href=/tags/image>image (1)</a></li><li><a href=/tags/jamstack>jamstack (1)</a></li><li><a href=/tags/lisp>lisp (1)</a></li><li><a href=/tags/macos>macos (2)</a></li><li><a href=/tags/node>node (1)</a></li><li><a href=/tags/openai>openai (1)</a></li><li><a href=/tags/permission>permission (1)</a></li><li><a href=/tags/pg>pg (1)</a></li><li><a href=/tags/php>php (1)</a></li><li><a href=/tags/python>python (3)</a></li><li><a href=/tags/ror>ror (1)</a></li><li><a href=/tags/ruby>ruby (1)</a></li><li><a href=/tags/sae>sae (1)</a></li><li><a href=/tags/safe>safe (1)</a></li><li><a href=/tags/ssg>ssg (1)</a></li><li><a href=/tags/ssh>ssh (2)</a></li><li><a href=/tags/sudo>sudo (1)</a></li><li><a href=/tags/test>test (1)</a></li><li><a href=/tags/tips>tips (2)</a></li><li><a href=/tags/ubuntu>ubuntu (1)</a></li><li><a href=/tags/vagrant>vagrant (1)</a></li><li><a href=/tags/video>video (1)</a></li><li><a href=/tags/web>web (2)</a></li><li><a href=/tags/%E7%BF%BB%E8%AF%91>翻译 (1)</a></li></ul></div></div></main><footer class=footer><div class=footer-row><a class=footer-item href=https://www.peterlau.xyz/posts/index.xml>Feed of Posts
+<i class=icofont-rss></i></a></div><div class=footer-row><span class=footer-item>Copyright <a href=https://creativecommons.org/licenses/by/4.0/>CC BY-4.0</a> 2022</span></div><div class=footer-row><span class=footer-item>Powered by <a href=https://gohugo.io>Hugo</a></span>
+<span class=footer-item>Theme <a href=https://github.com/leafee98/hugo-theme-flat>hugo-theme-flat</a></span></div></footer></body></html>

@@ -1,1 +1,1270 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on CodeMist</title><link>https://www.peterlau.xyz/posts/</link><description>Recent content in Posts on CodeMist</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 30 Sep 2022 04:17:20 +0800</lastBuildDate><atom:link href="https://www.peterlau.xyz/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo</title><link>https://www.peterlau.xyz/posts/hugo/</link><pubDate>Fri, 30 Sep 2022 04:17:20 +0800</pubDate><guid>https://www.peterlau.xyz/posts/hugo/</guid><description>Notes of Hugo</description></item><item><title>PostgreSQL Logical Replication with Docker and Elixir</title><link>https://www.peterlau.xyz/posts/postgresql-logical-replication-with-docker-and-elixir/</link><pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.peterlau.xyz/posts/postgresql-logical-replication-with-docker-and-elixir/</guid><description>postgresql, logical replication, docker, elixir, wal2json</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on CodeMist</title><link>https://www.peterlau.xyz/posts/</link><description>Recent content in Posts on CodeMist</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 05 Jun 2023 13:32:34 +0800</lastBuildDate><atom:link href="https://www.peterlau.xyz/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Emacs Tips</title><link>https://www.peterlau.xyz/posts/2023-06-05-emacs-tips/</link><pubDate>Mon, 05 Jun 2023 13:32:34 +0800</pubDate><guid>https://www.peterlau.xyz/posts/2023-06-05-emacs-tips/</guid><description>some useful tips of SSH</description></item><item><title>SSH Tips</title><link>https://www.peterlau.xyz/posts/2023-06-05-ssh-tips/</link><pubDate>Mon, 05 Jun 2023 13:17:08 +0800</pubDate><guid>https://www.peterlau.xyz/posts/2023-06-05-ssh-tips/</guid><description>some useful tips of SSH</description></item><item><title>Hugo Tips</title><link>https://www.peterlau.xyz/posts/hugo-tips/</link><pubDate>Fri, 30 Sep 2022 04:17:20 +0800</pubDate><guid>https://www.peterlau.xyz/posts/hugo-tips/</guid><description>Notes of Hugo</description></item><item><title>PostgreSQL Logical Replication with Docker and Elixir</title><link>https://www.peterlau.xyz/posts/postgresql-logical-replication-with-docker-and-elixir/</link><pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.peterlau.xyz/posts/postgresql-logical-replication-with-docker-and-elixir/</guid><description>postgresql, logical replication, docker, elixir, wal2json</description></item><item><title>Missing Steps of Heroku</title><link>https://www.peterlau.xyz/posts/missing-steps-of-heroku-docker/</link><pubDate>Tue, 17 Sep 2019 15:19:17 +0800</pubDate><guid>https://www.peterlau.xyz/posts/missing-steps-of-heroku-docker/</guid><description> &lt;h3 id="docker">Docker &lt;a href="#docker" class="anchor">🔗&lt;/a>&lt;/h3>&lt;p>根据 Dockerfile 构建镜像：&lt;/p>
+&lt;p>&lt;code>docker build . -t &amp;lt;your_image_name&amp;gt;&lt;/code>&lt;/p>
+&lt;p>&lt;code>heroku container:push &amp;lt;your_image_name&amp;gt;&lt;/code>&lt;/p>
+&lt;p>&lt;code>heroku container:release &amp;lt;your_image_name&amp;gt;&lt;/code>&lt;/p>
+&lt;p>&lt;code>heroku open&lt;/code>&lt;/p>
+&lt;p>Got Error: Expected response to be successful, got 422
+Name is invalid&lt;/p>
+&lt;p>&lt;code>HEROKU_DEBUG=1 heroku container:release &amp;lt;your_organization&amp;gt;/&amp;lt;your_image_name&amp;gt;:&amp;lt;your_image_tag&amp;gt;&lt;/code>&lt;/p>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/57846015/heroku-name-is-invalid-when-deploy-docker-image-how-to-debug">https://stackoverflow.com/questions/57846015/heroku-name-is-invalid-when-deploy-docker-image-how-to-debug&lt;/a>&lt;/p>
+&lt;p>&lt;code>heroku open&lt;/code>&lt;/p>
+&lt;p>Real-time tail&lt;/p>
+&lt;p>&lt;code>heroku logs --tail&lt;/code>&lt;/p>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/41804507/h14-error-in-heroku-no-web-processes-running">https://stackoverflow.com/questions/41804507/h14-error-in-heroku-no-web-processes-running&lt;/a>&lt;/p>
+&lt;p>原因：没有启动 dyno Heroku 最小计算单元&lt;/p>
+&lt;p>如果使用 Procfile 可以用命令&lt;/p>
+&lt;p>heroku ps:scale web=1&lt;/p>
+&lt;p>对应 Procfile&lt;/p>
+&lt;p>web: gunicorn -w 4 -b 0.0.0.0:$PORT -k gevent main:app&lt;/p>
+&lt;p>没有用 Procfile 可以去应用 Resources 下&lt;/p>
+&lt;p>&lt;a href="https://dashboard.heroku.com/apps/pure-fjord-97245/resources">https://dashboard.heroku.com/apps/pure-fjord-97245/resources&lt;/a>&lt;/p>
+&lt;p>修改 dyno 状态&lt;/p>
+&lt;p>heroku login -i 保持在终端下登录&lt;/p>
+&lt;p>heroku apps&lt;/p>
+&lt;p>docker-compose build&lt;/p>
+&lt;p>Your Ruby version is 2.5.6, but your Gemfile specified 2.5.3&lt;/p>
+&lt;p>Dockerfile
+FROM ruby:2.5 -&amp;gt; FROM ruby:2.5.3&lt;/p>
+&lt;p>docker-compose run &amp;ndash;rm web rails db:create&lt;/p>
+&lt;p>Deployment to Heroku
+$ heroku update beta&lt;br>
+$ heroku plugins:install @heroku-cli/plugin-manifest
+$ heroku apps:create &amp;ndash;manifest
+$ heroku addons:create heroku-postgresql:hobby-dev&lt;/p>
+&lt;p>heroku addons:create heroku-postgresql:hobby-dev -a bebopx_hello-heroku.1&lt;/p>
+&lt;p>heroku addons:create heroku-postgresql:hobby-dev -a pure-fjord-97245&lt;/p>
+&lt;p>$ heroku config:set RAILS_MASTER_KEY=&lt;code>cat config/master.key&lt;/code>
+$ heroku config:set RACK_ENV=production RAILS_ENV=production
+$ heroku config:set RAILS_SERVE_STATIC_FILES=enabled
+$ heroku config:set WEB_CONCURRENCY=2
+$ heroku config:set LANG=en_US.UTF-8&lt;/p>
+&lt;p>&lt;a href="https://blog.teamtreehouse.com/deploy-static-site-heroku">https://blog.teamtreehouse.com/deploy-static-site-heroku&lt;/a>&lt;/p></description></item><item><title>管理多个 SSH Key</title><link>https://www.peterlau.xyz/posts/manage-multiple-ssh-key/</link><pubDate>Mon, 16 Sep 2019 13:24:59 +0800</pubDate><guid>https://www.peterlau.xyz/posts/manage-multiple-ssh-key/</guid><description> &lt;p>SSH Key 最大的优势是免输入复杂的密码，一定程度避免中间人攻击。&lt;/p>
+&lt;p>多站点管理可以通过 SSH Config 解决。&lt;/p>
+&lt;p>多站点多账户可以用类似方法。 &lt;a href="https://gist.github.com/jexchan/2351996">https://gist.github.com/jexchan/2351996&lt;/a>&lt;/p>
+&lt;p>弊端，需要修改 remote url&lt;/p>
+&lt;p>更简单方法，使用支持多账户的 Git 客户端管理。&lt;/p>
+&lt;p>更个人化方法，自己实现 Git 客户端管理。&lt;/p>
+&lt;p>这里记录一个基于 Docker 的方法。思路很简单，用基于 Alpine 的最小化镜像，安装 Git OpenSSH 后通过 docker run 执行 git 操作。&lt;/p>
+&lt;p>Generate ssh key&lt;/p>
+&lt;p>ssh-keygen -t rsa -b 4096 -C &amp;ldquo;&lt;a href="mailto:your_email@example.com">your_email@example.com&lt;/a>&amp;rdquo;&lt;/p>
+&lt;p>eval &amp;ldquo;$(ssh-agent -s)&amp;rdquo;&lt;/p>
+&lt;p>ssh-add -K ~/.ssh/id_rsa&lt;/p>
+&lt;p>ssh-keygen -p&lt;/p>
+&lt;p>docker run -it &amp;ndash;rm -v $(pwd):/repo -v $HOME/.ssh/docker_config/ssh:/root/.ssh bebopx/git:alpine cd /repo;ssh -T &lt;a href="mailto:git@github.com">git@github.com&lt;/a>&lt;/p>
+&lt;p>docker run -it &amp;ndash;rm -w /repo -v $(pwd):/repo -v $HOME/.ssh/docker_config/ssh:/root/.ssh bebopx/git:alpine git clone &lt;a href="mailto:git@github.com">git@github.com&lt;/a>:bebopxff/links_share.git&lt;/p>
+&lt;p>docker run -it &amp;ndash;rm -w /repo -v $(pwd):/repo -v $HOME/.ssh/docker_config/ssh:/root/.ssh bebopx/git:alpine git push&lt;/p>
+&lt;p>docker run -it &amp;ndash;rm -w /repo -v $(pwd):/repo -v $HOME/.ssh/docker_config/ssh:/root/.ssh bebopx/git:alpine git clone &lt;a href="mailto:git@github.com">git@github.com&lt;/a>:bebopxff/links_share.git&lt;/p></description></item><item><title>macOS 下安装或更新 Dart 到最新版本</title><link>https://www.peterlau.xyz/posts/2018-07-14-macos-brew-dart/</link><pubDate>Sat, 14 Jul 2018 00:54:31 +0800</pubDate><guid>https://www.peterlau.xyz/posts/2018-07-14-macos-brew-dart/</guid><description> &lt;p>首先检查 macOS 系统是否有&lt;/p>
+&lt;p>&lt;code>/usr/local/Homebrew/Library/Taps/dart-lang/homebrew-dart&lt;/code>。&lt;/p>
+&lt;p>如果没有就执行&lt;/p>
+&lt;p>&lt;code>brew tap dart-lang/dart&lt;/code>，&lt;/p>
+&lt;p>然后进入 &lt;code>homebrew-dart&lt;/code>：&lt;/p>
+&lt;p>&lt;code>cd /usr/local/Homebrew/Library/Taps/dart-lang/homebrew-dart&lt;/code>。&lt;/p>
+&lt;p>将 &lt;code>dart.rb&lt;/code>、&lt;code>dart@1.rb&lt;/code>、&lt;code>dart@2.rb&lt;/code> 中的 &lt;code>storage.googleapis.com&lt;/code> 替换为 &lt;code>storage.flutter-io.cn&lt;/code>。&lt;/p>
+&lt;p>然后运行&lt;/p>
+&lt;p>&lt;code>brew install dart --devel&lt;/code> 或 &lt;code>brew upgrade dart --devel --force&lt;/code> 安装最新的 Dart，&lt;/p>
+&lt;p>最后用 &lt;code>dart --version&lt;/code> 验证安装结果。&lt;/p></description></item><item><title>OpenAI Five</title><link>https://www.peterlau.xyz/posts/2018-06-30-openai-five/</link><pubDate>Sat, 30 Jun 2018 00:54:31 +0800</pubDate><guid>https://www.peterlau.xyz/posts/2018-06-30-openai-five/</guid><description> &lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset="utf-8" />
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge" />
+&lt;title>OpenAI Five&lt;/title>
+&lt;meta name="HandheldFriendly" content="True" />
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" />
+&lt;link rel="shortcut icon" href="https://www.peterlau.xyz/favicon.ico" type="image/x-icon" />
+&lt;link rel="canonical" href="https://blog.openai.com/openai-five/" />
+&lt;meta name="referrer" content="no-referrer-when-downgrade" />
+&lt;meta property="og:site_name" content="OpenAI Blog" />
+&lt;meta property="og:type" content="article" />
+&lt;meta property="og:title" content="OpenAI Five" />
+&lt;meta property="og:description" content="Our team of five neural networks, OpenAI Five, has started to defeat amateur human teams at Dota 2." />
+&lt;meta property="og:url" content="https://blog.openai.com/openai-five/" />
+&lt;meta property="og:image" content="https://blog.openai.com/content/images/2018/06/dota-card-2.jpg" />
+&lt;meta property="article:published_time" content="2018-06-25T14:00:10.000Z" />
+&lt;meta property="article:modified_time" content="2018-06-25T20:53:45.000Z" />
+&lt;meta property="article:publisher" content="https://www.facebook.com/openai.research" />
+&lt;meta name="twitter:card" content="summary_large_image" />
+&lt;meta name="twitter:title" content="OpenAI Five" />
+&lt;meta name="twitter:description" content="Our team of five neural networks, OpenAI Five, has started to defeat amateur human teams at Dota 2." />
+&lt;meta name="twitter:url" content="https://blog.openai.com/openai-five/" />
+&lt;meta name="twitter:image" content="https://blog.openai.com/content/images/2018/06/dota-card-2.jpg" />
+&lt;meta name="twitter:label1" content="Written by" />
+&lt;meta name="twitter:data1" content="OpenAI" />
+&lt;meta name="twitter:label2" content="Filed under" />
+&lt;meta name="twitter:data2" content="" />
+&lt;meta name="twitter:site" content="@openai" />
+&lt;meta property="og:image:width" content="1200" />
+&lt;meta property="og:image:height" content="675" />
+&lt;link rel="alternate" type="application/rss+xml" title="OpenAI Blog" href="https://blog.openai.com/rss/" />
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+&lt;link rel="icon" href="https://blog.openai.com/assets/images/favicon/favicon.ico">
+&lt;link rel="shortcut icon" href="https://blog.openai.com/assets/images/favicon/favicon.ico">
+&lt;link rel="apple-touch-icon" href="https://blog.openai.com/assets/images/favicon/favicon.png">
+&lt;link rel="stylesheet" type="text/css" href="https://blog.openai.com/assets/css/style.css?v=f5ebf2b765" />
+&lt;meta name="twitter:card" content="summary_large_image">
+&lt;/head>
+&lt;body class="post-template tag-hash-design-card-image">
+&lt;main class="Main">
+&lt;div class="MainContent">
+&lt;article class="Post post tag-hash-design-card-image" id="openai-five">
+&lt;header class="PostHeader">
+&lt;div class="PostHeader-background">
+&lt;svg class="icon" width="100%" height="100%" viewBox="0 0 330 418" preserveAspectRatio="none">
+&lt;/svg>
+&lt;div class="PostHeader-background-glare">&lt;/div>
+&lt;/div>
+&lt;/header>
+&lt;section class="PostContent post-content">
+&lt;div class="kg-card-markdown">
+&lt;/section>
+&lt;div id="dota-5v5-hero-video">
+&lt;div class="Post__RobotsThatLearn__Video">
+&lt;a href="https://www.youtube.com/watch?v=eHipy_j29Xw" class="Post__RobotsThatLearn__Video-button">&lt;span>&lt;strong>Watch Video&lt;/strong>&lt;/span>&lt;/a>
+&lt;div class="Post__IngredientsForRoboticsResearch__PlayerContainer">
+&lt;div class="Post__IngredientsForRoboticsResearch__Player">
+&lt;iframe class="no-fluidvids" width="100%" height="100%" src="https://www.youtube.com/embed/eHipy_j29Xw?rel=0&amp;amp;showinfo=0&amp;amp;enablejsapi=1&amp;amp;color=white&amp;amp;vq=hd1080" frameborder="0" allow="encrypted-media" allowfullscreen>&lt;/iframe>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;section class="Post-inner PostContent post-content research-release-post" id="content">
+&lt;p>Our team of five neural networks, OpenAI Five, has started to &lt;a href="#thegames">defeat&lt;/a> amateur human teams at &lt;a href="http://www.dota2.com/play/">Dota 2&lt;/a>. While today we play with &lt;a href="#restricted">restrictions&lt;/a>, we
+aim to beat a team of top professionals at &lt;a href="https://en.wikipedia.org/wiki/The_International_(Dota_2)">The International&lt;/a> in August subject only to a limited set of heroes. We may not succeed: Dota 2 is one of the most
+popular and &lt;a href="https://purgegamers.true.io/g/dota-2-guide">complex&lt;/a> esports games in the world, with creative and motivated professionals who &lt;a href="https://venturebeat.com/2017/02/12/dota-evil-geniuses/">train&lt;/a> year-round
+to earn part of Dota's annual $40M &lt;a href="https://www.esportsearnings.com/history/2017/games">prize pool&lt;/a> (the largest of any esports game).&lt;/p>
+&lt;p>OpenAI Five plays 180 years worth of games against itself every day, learning via self-play. It trains using a scaled-up version of &lt;a href="https://blog.openai.com/openai-baselines-ppo/">Proximal Policy Optimization&lt;/a> running on
+256 GPUs and 128,000 CPU cores — a larger-scale version of the system we built to play the much-simpler &lt;a href="https://blog.openai.com/dota-2/">solo variant&lt;/a> of the game last year. Using a separate &lt;a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/#lstm-networks">LSTM&lt;/a> for each hero and no human data, it learns recognizable strategies. This indicates that &lt;a href="https://www.technologyreview.com/s/603501/10-breakthrough-technologies-2017-reinforcement-learning/">reinforcement learning&lt;/a> can
+yield long-term planning with large but achievable scale — without fundamental advances, contrary to our own expectations upon starting the project.&lt;/p>
+&lt;p>To benchmark our progress, we'll host a match versus top players on July 28th. &lt;a href="https://www.twitch.tv/openai">Follow&lt;/a> us on Twitch to view the live broadcast, or &lt;a href="https://www.eventbrite.com/e/openai-five-benchmark-tickets-47144438284">request&lt;/a> an invite to attend in person!&lt;/p>
+&lt;style>
+.Post__RobotsThatLearn__Video {
+margin: 0;
+}
+.Post__RobotsThatLearn__Video-button span {
+padding-top: 33vh;
+}
+.Post__RobotsThatLearn__Video-button span {
+background-image: url(https://blog.openai.com/content/images/2018/06/hero-lineup-dimmed.jpg);
+background-size: cover;
+background-position: center center;
+}
+#dota-5v5-hero-video {
+width: 100%;
+background-repeat: no-repeat;
+background-position: center;
+margin-bottom: 2.5rem;
+}
+.ResearchPostHeader {
+padding-bottom: 0;
+margin-bottom: 0;
+}
+@media screen and (min-width: 776.25px) {
+.ResearchPostHeader-intro {
+width: 655px;
+padding-left: 25px;
+}
+}
+.PostContent .ResearchPostHeader-title {
+margin-bottom: 0.4em !important;
+}
+.ResearchPostHeader-coverContainer {
+display: none;
+}
+&lt;/style>
+&lt;p>&lt;img src="https://blog.openai.com/content/images/2018/06/H0A3837.jpg" alt="Players and audience of the bot playing against our human test team">&lt;br>
+&lt;em>OpenAI Five playing the best OpenAI employee team. The match was commentated by professional commentator &lt;a href="https://liquipedia.net/dota2/Blitz">Blitz&lt;/a> and OpenAI Dota team member Christy Dennison, and observed by a crowd from the community.&lt;/em>&lt;/p>
+&lt;h1 id="theproblem">The problem&lt;/h1>
+&lt;p>One AI milestone is to exceed human capabilities in a complex video game like &lt;a href="https://qz.com/1051052/deepmind-goog-and-facebook-fb-have-started-the-global-sprint-for-ai-to-beat-starcraft-ii/">StarCraft&lt;/a> or Dota. Relative
+to previous AI milestones like &lt;a href="https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)">Chess&lt;/a> or &lt;a href="https://deepmind.com/research/alphago/">Go&lt;/a>, complex video games start to capture the messiness and continuous
+nature of the real world. The hope is that systems which solve complex video games will be highly general, with applications outside of games.&lt;/p>
+&lt;p>Dota 2 is a real-time strategy game played between two teams of five players, with each player controlling a character called a &amp;quot;hero&amp;quot;. A Dota-playing AI must master the following:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Long time horizons.&lt;/strong> Dota games run at 30 frames per second for an average of 45 minutes, resulting in 80,000 ticks per game. Most actions (like ordering a hero to &lt;a href="https://developer.valvesoftware.com/wiki/Dota_Bot_Scripting#UNIT_SCOPED_FUNCTIONS">move&lt;/a> to a location) have minor impact individually, but some individual actions like &lt;a href="https://dota2.gamepedia.com/Town_Portal_Scroll">town portal&lt;/a> usage can affect the game strategically; some &lt;a href="https://www.liquiddota.com/forum/dota-2-strategy/454744-a-small-primer-on-dota-2-strategy">strategies&lt;/a> can play out over an entire game. OpenAI Five observes every fourth frame, yielding 20,000 moves. &lt;a href="https://blog.ebemunk.com/a-visual-look-at-2-million-chess-games/">Chess&lt;/a> usually ends before 40 moves, &lt;a href="https://en.wikipedia.org/wiki/Go_and_mathematics#Game_tree_complexity">Go&lt;/a> before 150 moves, with almost every move being strategic.&lt;/li>
+&lt;li>&lt;strong>Partially-observed state.&lt;/strong> Units and buildings can only see the area around them. The rest of the map is covered in a fog hiding enemies and their strategies. Strong play requires making inferences based on incomplete
+data, as well as modeling what one's opponent might be up to. Both chess and Go are full-information games.&lt;/li>
+&lt;li>&lt;strong>High-dimensional, continuous action space.&lt;/strong> In Dota, each hero can take dozens of actions, and many actions target either another unit or a position on the ground. We discretize the space into 170,000 possible actions
+per hero (not all valid each tick, such as using a spell on &lt;a href="https://dota2.gamepedia.com/Cooldown">cooldown&lt;/a>); not counting the continuous parts, there are an average of ~1,000 valid actions each tick. The average
+&lt;a href="https://en.wikipedia.org/wiki/Branching_factor">number of actions&lt;/a> in chess is 35; in Go, 250.&lt;/li>
+&lt;li>&lt;strong>High-dimensional, continuous observation space.&lt;/strong> Dota is played on a large continuous &lt;a href="https://devilesk.com/dota2/apps/interactivemap/">map&lt;/a> containing ten heroes, dozens of buildings, dozens of &lt;a href="https://en.wikipedia.org/wiki/Non-player_character">NPC&lt;/a> units, and a long tail of game features such as runes, trees, and wards. Our model observes the state of a Dota game via Valve's &lt;a href="https://developer.valvesoftware.com/wiki/Dota_Bot_Scripting">Bot API&lt;/a> as 20,000 (mostly
+floating-point) numbers representing all information a human is allowed to access. A chess board is naturally represented as about 70 enumeration values (a 8x8 board of 6 piece types and minor &lt;a href="https://en.wikipedia.org/wiki/Threefold_repetition">historical&lt;/a> &lt;a href="https://en.wikipedia.org/wiki/Castling">info&lt;/a>); a Go board as about 400 enumeration values (a 19x19 board of 2 piece types plus &lt;a href="https://en.wikipedia.org/wiki/Go_(game)#Ko_rule">Ko&lt;/a>).&lt;/li>
+&lt;/ul>
+&lt;p>The Dota rules are also very complex — the game has been actively developed for over a decade, with game logic implemented in hundreds of thousands of lines of code. This logic takes milliseconds per tick to execute, versus nanoseconds
+for Chess or Go engines. The game also gets an update about once every two weeks, constantly changing the environment semantics.&lt;/p>
+&lt;h1 id="ourapproach">Our approach&lt;/h1>
+&lt;p>Our system learns using a massively-scaled version of &lt;a href="https://blog.openai.com/openai-baselines-ppo/">Proximal Policy Optimization&lt;/a>. Both OpenAI Five and our earlier &lt;a href="https://blog.openai.com/dota-2/">1v1 bot&lt;/a> learn entirely from self-play. They start with random parameters and do not use &lt;a href="https://www.reddit.com/r/DotA2/comments/87up8k/will_open_ai_play_real_5v5_dota_at_ti_8/dwg12om/">search&lt;/a> or bootstrap from human replays.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>&lt;strong>OpenAI 1v1 bot&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>OpenAI Five&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>CPUs&lt;/strong>&lt;/td>
+&lt;td>60,000 CPU cores on Azure&lt;/td>
+&lt;td>128,000 &lt;a href="https://cloud.google.com/preemptible-vms/">preemptible&lt;/a> CPU cores on GCP&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>GPUs&lt;/strong>&lt;/td>
+&lt;td>256 K80 GPUs on Azure&lt;/td>
+&lt;td>256 P100 GPUs on GCP&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Experience collected&lt;/strong>&lt;/td>
+&lt;td>~300 years per day&lt;/td>
+&lt;td>~180 years per day (~900 years per day counting each hero separately)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Size of observation&lt;/strong>&lt;/td>
+&lt;td>~3.3 kB&lt;/td>
+&lt;td>~36.8 kB&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Observations per second of gameplay&lt;/strong>&lt;/td>
+&lt;td>10&lt;/td>
+&lt;td>7.5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Batch size&lt;/strong>&lt;/td>
+&lt;td>8,388,608 observations&lt;/td>
+&lt;td>1,048,576 observations&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Batches per minute&lt;/strong>&lt;/td>
+&lt;td>~20&lt;/td>
+&lt;td>~60&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;style>
+.PostContent table {
+width: calc(100% + 4rem);
+max-width: calc(100% + 4rem);
+table-layout: fixed;
+}
+.PostContent table tbody>tr:nth-child(odd)>td,
+.PostContent table tbody>tr:nth-child(odd)>th {
+background-color: #f7fbfb;
+}
+&lt;/style>
+&lt;p>RL researchers (including ourselves) have generally &lt;a href="https://himanshusahni.github.io/2018/02/23/reinforcement-learning-never-worked.html">believed&lt;/a> that long time horizons would require fundamentally new advances, such as
+&lt;a href="http://www.cs.toronto.edu/~fritz/absps/dh93.pdf">hierarchical&lt;/a> &lt;a href="https://blog.openai.com/learning-a-hierarchy/">reinforcement&lt;/a> &lt;a href="https://einstein.ai/research/hierarchical-reinforcement-learning">learning&lt;/a>.
+Our results suggest that we haven't been giving today's algorithms enough credit — at least when they're run at sufficient scale and with a reasonable way of &lt;a href="#exploration">exploring&lt;/a>.&lt;/p>
+&lt;p>Our agent is trained to maximize the exponentially decayed sum of future rewards, weighted by an exponential decay factor called &lt;code>γ&lt;/code>. During the latest training run of OpenAI Five, we annealed &lt;code>γ&lt;/code> from &lt;code>0.998&lt;/code> (valuing future rewards with a half-life of 46 seconds) to &lt;code>0.9997&lt;/code> (valuing future rewards with a half-life of five minutes). For comparison, the longest horizon in the &lt;a href="https://arxiv.org/abs/1707.06347">PPO&lt;/a> paper was a half-life of 0.5 seconds, the longest in the &lt;a href="https://arxiv.org/abs/1710.02298">Rainbow&lt;/a> paper was a half-life of 4.4 seconds, and the &lt;a href="https://arxiv.org/abs/1805.11593">Observe and Look Further&lt;/a> paper used a half-life of 46 seconds.&lt;/p>
+&lt;p>While the current version of OpenAI Five is weak at &lt;a href="https://dota2.gamepedia.com/Creep_control_techniques#Last-hitting">last-hitting&lt;/a> (observing our test matches, the professional Dota commentator &lt;a href="https://liquipedia.net/dota2/Blitz">Blitz&lt;/a> estimated it around median for Dota players), its &lt;a href="#observations">objective prioritization&lt;/a> matches a common professional strategy. Gaining long-term rewards such as strategic map control often requires sacrificing short-term
+rewards such as gold gained from &lt;a href="https://dota2.gamepedia.com/Farming">farming&lt;/a>, since grouping up to attack towers takes time. This observation reinforces our belief that the system is truly optimizing over a long horizon.&lt;/p>
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/UZHTNBMAfAA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>&lt;/iframe>
+&lt;h4 id="modelstructure">Model structure&lt;/h4>
+&lt;p>Each of &lt;a href="https://d4mucfpksywv.cloudfront.net/research-covers/openai-five/network-architecture.pdf">OpenAI Five's networks&lt;/a> contain a single-layer, 1024-unit &lt;a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/#lstm-networks">LSTM&lt;/a> that sees the current game state (extracted from Valve's &lt;a href="https://developer.valvesoftware.com/wiki/Dota_Bot_Scripting">Bot API&lt;/a>) and emits actions through several possible action heads. Each head has semantic meaning,
+for example, the number of ticks to delay this action, which action to select, the X or Y coordinate of this action in a grid around the unit, etc. Action heads are computed independently.&lt;/p>
+&lt;p>&lt;em>Interactive demonstration of the observation space and action space used by OpenAI Five. OpenAI Five views the world as a list of 20,000 numbers, and takes an action by emitting a list of 8 enumeration values. Select different actions and targets to understand how OpenAI Five encodes each action, and how it observes the world. The image shows the scene as a human would see it.&lt;/em>&lt;/p>
+&lt;/section>
+&lt;link href="https://d4mucfpksywv.cloudfront.net/research-covers/openai-five/css/style.css" rel="stylesheet">
+&lt;div class="diagram-container">
+&lt;div id="dota-diagram">&lt;/div>
+&lt;/div>
+&lt;script src="https://d4mucfpksywv.cloudfront.net/research-covers/openai-five/scripts.v1.min.js" type="text/javascript">&lt;/script>
+&lt;section class="Post-inner PostContent post-content research-release-post" id="content">
+&lt;p>OpenAI Five can react to missing pieces of state that correlate with what it does see. For example, until recently OpenAI Five's observations did not include &lt;a href="https://dota2.gamepedia.com/Sniper#Abilities">shrapnel&lt;/a> zones
+(areas where projectiles rain down on enemies), which humans see on screen. However, we observed OpenAI Five learning to walk out of (though not avoid entering) active shrapnel zones, since it could see its health decreasing.&lt;/p>
+&lt;h4 id="exploration">Exploration&lt;/h4>
+&lt;p>Given a learning algorithm capable of handling long horizons, we still need to explore the environment. Even with our &lt;a href="#restricted">restrictions&lt;/a>, there are hundreds of items, dozens of buildings, spells, and unit types,
+and a long tail of game mechanics to learn about — many of which yield powerful combinations
+&lt;!--TODO: link to video of combos-->. It's not easy to explore this combinatorially-vast space efficiently.&lt;/p>
+&lt;p>OpenAI Five learns from self-play (starting from random weights), which provides a natural curriculum for exploring the environment. To avoid &amp;quot;strategy collapse&amp;quot;, the agent trains 80% of its games against itself and the other
+20% against its past selves. In the first games, the heroes walk aimlessly around the map. After several hours of training, concepts such as &lt;a href="https://www.reddit.com/r/DotA2/comments/17fj2y/laning_101/">laning&lt;/a>, &lt;a href="https://dota2.gamepedia.com/Farming">farming&lt;/a>,
+or fighting over &lt;a href="https://pvgna.com/dota2/paths/how-to-master-mid-lane">mid&lt;/a> emerge. After several days, they consistently adopt basic human strategies: attempt to steal &lt;a href="https://dota2.gamepedia.com/Bounty_Rune">Bounty&lt;/a> runes from their opponents, walk to their &lt;a href="https://dota2.gamepedia.com/Buildings#Towers">tier one&lt;/a> towers to farm, and rotate heroes around the map to gain lane advantage. And with further training, they become proficient
+at high-level strategies like &lt;a href="https://www.reddit.com/r/DotA2/comments/4iyr00/how_do_you_counter_a_5man_early_game_push_strat/">5-hero push&lt;/a>.&lt;/p>
+&lt;p>In March 2017, our first &lt;a href="https://www.youtube.com/watch?v=5Fv2c4aNS2w&amp;amp;feature=youtu.be">agent&lt;/a> defeated bots but got confused against humans. To force exploration in strategy space, during training (and only during training)
+we randomized the properties (health, speed, start level, etc.) of the units, and it began beating humans. Later on, when a test player was consistently beating our 1v1 bot, we increased our training randomizations and the test
+player started to lose. (Our robotics team concurrently applied similar randomization techniques to &lt;a href="https://blog.openai.com/generalizing-from-simulation/">physical&lt;/a> &lt;a href="https://blog.openai.com/spam-detection-in-the-physical-world/">robots&lt;/a> to transfer from simulation to the real world.)&lt;/p>
+&lt;p>OpenAI Five uses the randomizations we wrote for our 1v1 bot. It also uses a new &amp;quot;lane assignment&amp;quot; one. At the beginning of each training game, we randomly &amp;quot;assign&amp;quot; each hero to some subset of &lt;a href="https://dota2.gamepedia.com/Lane">lanes&lt;/a> and penalize it for straying from those lanes until a randomly-chosen time in the game.&lt;/p>
+&lt;p>Exploration is also helped by a good reward. &lt;a href="https://gist.github.com/dfarhi/66ec9d760ae0c49a5c492c9fae93984a">Our reward&lt;/a> consists mostly of metrics humans track to decide how they're doing in the game: net worth, kills,
+deaths, assists, last hits, and the like. We postprocess each agent's reward by subtracting the other team's average reward to prevent the agents from finding positive-sum situations.&lt;/p>
+&lt;p>We hardcode item and skill builds (originally written for our &lt;a href="https://blog.openai.com/more-on-dota-2/#infrastructure">scripted&lt;/a> baseline), and choose which of the builds to use at random. &lt;a href="https://dota2.gamepedia.com/Courier">Courier&lt;/a> management is also imported from the scripted baseline.&lt;/p>
+&lt;h4 id="coordination">Coordination&lt;/h4>
+&lt;p>OpenAI Five does not contain an explicit communication channel between the heroes' neural networks. Teamwork is controlled by a hyperparameter we dubbed &amp;quot;team spirit&amp;quot;. Team spirit ranges from 0 to 1, putting a weight on how
+much each of OpenAI Five's heroes should care about its individual reward function versus the average of the team's reward functions. We anneal its value from 0 to 1 over training.&lt;/p>
+&lt;h4 id="rapid">Rapid&lt;/h4>
+&lt;img class="Dota-Minigraph" src="https://blog.openai.com/content/images/2018/06/rapid@2x.png" alt="OpenAI Rapid" />
+&lt;p>Our system is implemented as a general-purpose RL training system called Rapid, which can be applied to any &lt;a href="https://github.com/openai/gym">Gym&lt;/a> environment. We've used Rapid to solve other problems at OpenAI, including
+&lt;a href="https://blog.openai.com/competitive-self-play/">Competitive Self-Play&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="https://blog.openai.com/content/images/2018/06/rapid-architecture@2x--1-.png" alt="rapid-architecture@2x--1-">&lt;/p>
+&lt;p>The training system is separated into &lt;em>rollout&lt;/em> workers, which run a copy of the game and an agent gathering experience, and &lt;em>optimizer&lt;/em> nodes, which perform synchronous gradient descent across a fleet of GPUs. The rollout
+workers sync their experience through Redis to the optimizers. Each experiment also contains workers evaluating the trained agent versus reference agents, as well as monitoring software such as &lt;a href="https://www.tensorflow.org/programmers_guide/summaries_and_tensorboard">TensorBoard&lt;/a>,
+&lt;a href="https://sentry.io/welcome/">Sentry&lt;/a>, and &lt;a href="https://grafana.com/">Grafana&lt;/a>.&lt;/p>
+&lt;img class="Dota-Minigraph" src="https://blog.openai.com/content/images/2018/06/gpu-synchronization-time-small@2x.png" />
+&lt;p>During synchronous gradient descent, each GPU computes a gradient on its part of the batch, and then the gradients are globally averaged. We originally used &lt;a href="https://en.wikipedia.org/wiki/Message_Passing_Interface">MPI's&lt;/a> &lt;a href="http://www.mcs.anl.gov/research/projects/mpi/mpi-standard/mpi-report-1.1/node82.htm">allreduce&lt;/a> for averaging, but now use our own &lt;a href="https://developer.nvidia.com/nccl">NCCL2&lt;/a> wrappers that parallelize GPU
+computations and network data transfer.&lt;br> The latencies for synchronizing 58MB of data (size of OpenAI Five's parameters) across different numbers of GPUs are shown on the right. The latency is low enough to be largely masked
+by GPU computation which runs in parallel with it.&lt;/p>
+&lt;p>We've implemented Kubernetes, Azure, and GCP backends for Rapid.&lt;/p>
+&lt;h1 id="thegames">The games&lt;/h1>
+&lt;p>Thus far OpenAI Five has played (with our &lt;a href="#restricted">restrictions&lt;/a>) versus each of these teams:&lt;/p>
+&lt;ol>
+&lt;li>Best OpenAI employee team: 2.5k &lt;a href="https://dota2.gamepedia.com/Matchmaking_Rating">MMR&lt;/a> (46th percentile)&lt;/li>
+&lt;li>Best audience players watching OpenAI employee match (including Blitz, who commentated the first OpenAI employee match): 4-6k MMR (90th-99th percentile), though they'd never played as a team.&lt;/li>
+&lt;li>Valve employee team: 2.5-4k MMR (46th-90th percentile).&lt;/li>
+&lt;li>Amateur team: 4.2k MMR (93rd percentile), trains as a team.&lt;/li>
+&lt;li>Semi-pro team: 5.5k MMR (99th percentile), trains as a team.&lt;/li>
+&lt;/ol>
+&lt;p>The April 23rd version of OpenAI Five was the first to beat our scripted baseline. The May 15th version of OpenAI Five was evenly matched versus team 1, winning one game and losing another. The June 6th version of OpenAI Five decisively
+won all its games versus teams 1-3. We set up informal &lt;a href="https://www.reddit.com/r/DotA2/comments/3s9zet/what_is_a_scrim/">scrims&lt;/a> with teams 4 &amp;amp; 5, expecting to lose soundly, but OpenAI Five won two of its first three
+games versus both.&lt;/p>
+&lt;p>&lt;img src="https://blog.openai.com/content/images/2018/06/195A8963_cropped.jpg" alt="195A8963_cropped">&lt;/p>
+&lt;blockquote>
+&lt;p>The teamwork aspect of the bot was just overwhelming. It feels like five selfless players that know a good general strategy.&lt;/p>
+&lt;p>— Blitz&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;a name="observations" id="observations">&lt;/a>We observed that OpenAI Five:&lt;/p>
+&lt;ul>
+&lt;li>Repeatedly sacrificed its own &lt;a href="https://dota2.gamepedia.com/Lane">safe lane&lt;/a> (top lane for dire; bottom lane for radiant) in exchange for controlling the enemy's safe lane, forcing the fight onto the side that is harder
+for their opponent to defend. This strategy emerged in the professional scene in the last few years, and is now considered to be the prevailing tactic. Blitz commented that he only learned this after eight years of play, when
+&lt;a href="https://liquipedia.net/dota2/Team_Liquid">Team Liquid&lt;/a> told him about it.&lt;/li>
+&lt;li>&lt;img class="Dota-Minigraph" src="https://blog.openai.com/content/images/2018/06/ganking-2.gif" />Pushed the &lt;a href="https://purgegamers.true.io/purge/phases-of-the-game/">transitions&lt;/a> from early- to mid-game faster than its
+opponents. It did this by: (1) setting up successful &lt;a href="https://dota2.gamepedia.com/Ganking">ganks&lt;/a> (when players move around the map to ambush an enemy hero — see animation) when players overextended in their lane,
+and (2) by grouping up to take towers before the opponents could organize a counterplay.
+&lt;div style="clear:both">&lt;/div>
+&lt;/li>
+&lt;li>Deviated from current &lt;a href="https://liquipedia.net/dota2/Metagame">playstyle&lt;/a> in a few areas, such as giving &lt;a href="https://dota2.gamepedia.com/Role#Support">support&lt;/a> heroes (which usually do not take priority for resources)
+lots of early experience and gold. OpenAI Five's prioritization allows for its damage to peak sooner and push its advantage harder, winning team fights and capitalizing on mistakes to ensure a fast win.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://blog.openai.com/content/images/2018/06/_H0A3928.jpg" alt="_H0A3928">&lt;br>
+&lt;em>Trophies awarded after the match between the best players at OpenAI and our bot team. One trophy for the humans, one trophy for the bots (represented by Susan Zhang from our team!)&lt;/em>&lt;/p>
+&lt;h1 id="differencesversushumans">Differences versus humans&lt;/h1>
+&lt;p>OpenAI Five is given access to the same information as humans, but instantly sees data like positions, healths, and item inventories that humans have to check manually. Our method isn't fundamentally tied to observing state, but just
+rendering pixels from the game would require thousands of GPUs.&lt;/p>
+&lt;p>OpenAI Five averages around 150-170 actions per minute (and has a theoretical maximum of 450 due to observing every 4th frame). Frame-perfect timing, while &lt;a href="https://www.reddit.com/r/DotA2/comments/493wib/frameperfect_stun_by_swindle_on_enchantress_in_eg/">possible&lt;/a> for skilled players, is trivial for OpenAI Five. OpenAI Five has an average reaction time of 80ms, which is faster than humans.&lt;/p>
+&lt;p>These differences matter most in 1v1 (where our bot had a reaction time of 67ms), but the playing field is relatively equitable as we've seen humans learn from and adapt to the bot. Dozens of &lt;a href="https://www.reddit.com/r/DotA2/comments/6yp5ug/black_just_killed_open_ai/">professionals&lt;/a> &lt;a href="https://www.reddit.com/r/DotA2/comments/6wqf5x/bulldog_gets_jebaited_hard_by_openai_bot/">used&lt;/a> our 1v1 bot for &lt;a href="https://www.youtube.com/watch?v=DQ3fPS9345A">training&lt;/a> in the months after last year's &lt;a href="https://en.wikipedia.org/wiki/The_International_(Dota_2)">TI&lt;/a>.
+According to Blitz, the 1v1 bot has changed the way people think about 1v1s (the bot adopted a fast-paced playstyle, and everyone has now adapted to keep up).&lt;/p>
+&lt;h1 id="surprisingfindings">Surprising findings&lt;/h1>
+&lt;style>
+img.Dota-Minigraph,
+video.Dota-Minigraph {
+float: right;
+display: inline;
+width: 40%;
+max-width: none;
+padding: 0.5rem 0;
+position: inherit;
+transform: none;
+}
+&lt;/style>
+&lt;ul>
+&lt;li>&lt;img class="Dota-Minigraph" src="https://blog.openai.com/content/images/2018/06/sparse-vs-dense-small@2x.png" alt="Sparse vs Dense rewards learning curves, showing dense reaching an equivalent level of performance faster." />&lt;strong>Binary rewards can give good performance.&lt;/strong> Our 1v1 model had a shaped reward, including rewards for last hits, kills, and the like. We ran an experiment where we only rewarded the agent for winning or losing, and it trained an order of magnitude slower and somewhat
+plateaued in the middle, in contrast to the smooth learning curves we usually see. The experiment ran on 4,500 cores and 16 k80 GPUs, training to the level of semi-pros (70 &lt;a href="https://en.wikipedia.org/wiki/TrueSkill">TrueSkill&lt;/a>)
+rather than 90 TrueSkill of our best 1v1 bot).&lt;/li>
+&lt;li>&lt;strong>Creep blocking can be learned from scratch.&lt;/strong> For 1v1, we learned &lt;a href="https://blog.openai.com/more-on-dota-2/#thetask">creep blocking&lt;/a> using traditional RL with a "creep block" reward. One of our team members
+left a 2v2 model training when he went on vacation (proposing to his now wife!), intending to see how much longer training would boost performance. To his surprise, the model had &lt;a href="https://s3-us-west-2.amazonaws.com/openai-assets/dota_2018/cm_creepblock.mp4">learned to creep block&lt;/a> without any special guidance or reward.&lt;/li>
+&lt;li>&lt;img class="Dota-Minigraph" src="https://blog.openai.com/content/images/2018/06/bug-comparison-small@2x.png" alt="Comparison of learning curves before and after bugfixes, showing how fixing bugs increases learning speed." />&lt;strong>We're still fixing bugs.&lt;/strong> The chart shows a training run of the code that defeated amateur players, compared to a version where we simply fixed a number of bugs, such as rare crashes during training, or a bug which resulted in a large negative reward
+for reaching level 25. It turns out it's possible to beat good humans while still hiding serious bugs!&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://blog.openai.com/content/images/2018/06/group-laptop.jpg" alt="group-laptop">&lt;br>
+&lt;em>A subset of the OpenAI Dota team, holding the laptop that &lt;a href="https://blog.openai.com/dota-2/">defeated&lt;/a> the world's top professionals at Dota 1v1 at The International last year.&lt;/em>&lt;/p>
+&lt;h1 id="whatsnext">What's next&lt;/h1>
+&lt;p>Our team is focused on making our August goal. We don't know if it will be achievable, but we believe that with hard work (and some luck) we have a real shot.&lt;/p>
+&lt;p>This post described a snapshot of our system as of June 6th. We'll release updates along the way to surpassing human performance and write a report on our final system once we complete the project. Please join us on July 28th &lt;a href="https://www.twitch.tv/openai">virtually&lt;/a> or &lt;a href="https://www.eventbrite.com/e/openai-dota-5v5-match-tickets-47144438284">in person&lt;/a>, when we'll play a team of top players!&lt;/p>
+&lt;p>Our underlying motivation reaches beyond Dota. Real-world AI deployments will need to deal with the &lt;a href="#theproblem">challenges&lt;/a> raised by Dota which are not reflected in Chess, Go, Atari games, or Mujoco benchmark tasks. Ultimately,
+we will measure the success of our Dota system in its application to real-world tasks. If you'd like to be part of what comes next, we're &lt;a href="https://openai.com/jobs/">hiring&lt;/a>!&lt;/p>
+&lt;script>
+// From https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+function teamblock(team, cls) {
+function shuffle(array) {
+var currentIndex = array.length,
+temporaryValue, randomIndex;
+// While there remain elements to shuffle...
+while (0 !== currentIndex) {
+// Pick a remaining element...
+randomIndex = Math.floor(Math.random() * currentIndex);
+currentIndex -= 1;
+// And swap it with the current element.
+temporaryValue = array[currentIndex];
+array[currentIndex] = array[randomIndex];
+array[randomIndex] = temporaryValue;
+}
+return array;
+}
+team = shuffle(team);
+var items = team.map(function(n) {
+return "&lt;li class='Page-Event__Team-individual'>" + n + "&lt;/li>";
+}).join("");
+var teamblock = "&lt;ul class='Page-Event__Team " + cls + "'>" + items + "&lt;/ul>";
+return teamblock
+}
+var alpha = ["Brooke Chan", "Christy Dennison", "David Farhi", "Filip Wolski", "Greg Brockman", "Henrique Pondé", "Jakub Pachocki", "Jie Tang", "Jonathan Raiman", "Michael Petrov", "Przemysław Dębiak", "Susan Zhang", "Szymon Sidor", "Rafał Józefowicz"];
+var beta = ["Quirin Fischer", "Christopher Hesse", "Shariq Hashme", "Ilya Sutskever", "Alec Radford", "Scott Gray", "Jack Clark", "Paul Christiano", "David Luan", "Christopher Berner", "Eric Sigler", "Jonas Schneider", "Larissa Schiavo", "Diane Yoon", "John Schulman"]
+var byline = "&lt;span class='PostFooter-authors--label'>Built by a team of researchers and engineers at OpenAI (order randomized each pageload).&lt;/span>";
+document.addEventListener("DOMContentLoaded", function(event) {
+document.querySelector(".PostFooter-authors").innerHTML = byline;
+document.querySelector(".PostFooter").innerHTML += "&lt;div class='PostFooter-authors dota-5v5-authors'>" + teamblock(alpha, "") + teamblock(beta, " Page-Event__Team-beta") + "&lt;/div>";
+});
+&lt;/script>
+&lt;style>
+.PostFooter {
+flex-wrap: wrap;
+}
+.PostFooter-authors {
+width: 50%;
+}
+.Page-Event__Team-individual {
+//font-size: 1.8em;
+line-height: 1.28em;
+list-style: none; //width: 50%;
+text-align: center;
+padding: .5rem;
+font-weight: 500; //color: #f8dc57;
+}
+.Page-Event__Team {
+margin: 0;
+padding: 0px;
+max-width: 400px;
+margin: 0.5rem auto;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-wrap: wrap;
+flex-wrap: wrap;
+}
+.Page-Event__Team-beta {
+margin-top: 3.5rem;
+}
+&lt;/style>
+&lt;hr/>
+&lt;div style="font-size: 85%">
+&lt;p>&lt;a id="restricted" name="restricted">&lt;/a>[1] Current set of restrictions:&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>Mirror match of &lt;a href="https://dota2.gamepedia.com/Necrophos">Necrophos&lt;/a>, &lt;a href="https://dota2.gamepedia.com/Sniper">Sniper&lt;/a>, &lt;a href="https://dota2.gamepedia.com/Viper">Viper&lt;/a>, &lt;a href="https://dota2.gamepedia.com/Crystal_Maiden">Crystal Maiden&lt;/a>, and &lt;a href="https://dota2.gamepedia.com/Lich">Lich&lt;/a>&lt;/em>&lt;/li>
+&lt;li>&lt;em>No &lt;a href="https://www.thescoreesports.com/dota2/news/13481-a-basic-guide-to-warding-in-dota-2">warding&lt;/a>&lt;/em>&lt;/li>
+&lt;li>&lt;em>No &lt;a href="https://dota2.gamepedia.com/Roshan">Roshan&lt;/a>&lt;/em>&lt;/li>
+&lt;li>&lt;em>No &lt;a href="https://dota2.gamepedia.com/Invisibility">invisibility&lt;/a> (consumables and relevant items)&lt;/em>&lt;/li>
+&lt;li>&lt;em>No &lt;a href="https://dota2.gamepedia.com/Summons">summons&lt;/a>/&lt;a href="https://dota2.gamepedia.com/Illusions">illusions&lt;/a>&lt;/em>&lt;/li>
+&lt;li>&lt;em>No &lt;a href="https://dota2.gamepedia.com/Divine_Rapier">Divine Rapier&lt;/a>, &lt;a href="https://dota2.gamepedia.com/Bottle">Bottle&lt;/a>, &lt;a href="https://dota2.gamepedia.com/Quelling_Blade">Quelling Blade&lt;/a>, &lt;a href="https://dota2.gamepedia.com/Boots_of_Travel">Boots of Travel&lt;/a>, &lt;a href="https://dota2.gamepedia.com/Tome_of_Knowledge">Tome of Knowledge&lt;/a>, &lt;a href="https://dota2.gamepedia.com/Infused_Raindrop">Infused Raindrop&lt;/a>&lt;/em>&lt;/li>
+&lt;li>&lt;em>5 invulnerable couriers, no exploiting them by scouting or tanking&lt;/em>&lt;/li>
+&lt;li>&lt;em>No &lt;a href="https://dota2.gamepedia.com/Scan">Scan&lt;/a>&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>The hero set restriction makes the game very different from how Dota is played at world-elite level (i.e. &lt;a href="https://dota2.gamepedia.com/Game_modes#Captains_Mode">Captains Mode&lt;/a> drafting from all 100+ heroes). However,
+the difference from regular &amp;quot;public&amp;quot; games (&lt;a href="https://dota2.gamepedia.com/Game_modes#All_Pick">All Pick&lt;/a> / &lt;a href="https://dota2.gamepedia.com/Game_modes#Random_Draft">Random Draft&lt;/a>) is smaller.&lt;/p>
+&lt;p>Most of the restrictions come from remaining aspects of the game we haven't integrated yet. Some restrictions, in particular wards and Roshan, are central components of professional-level play. We're working to add these as soon
+as possible.&lt;/p>
+&lt;p>[2] Thanks to the following for feedback on drafts of this post: Alexander Lavin, Andrew Gibiansky, Anna Goldie, Azalia Mirhoseini, Catherine Olsson, David Dohan, David Ha, Denny Britz, Erich Elsen, James Bradbury, John Miller,
+Luke Metz, Maddie Hall, Miles Brundage, Nelson Elhage, Ofir Nachum, Pieter Abbeel, Rumen Hristov, Shubho Sengupta, Solomon Boulos, Stephen Merity, Tom Brown, Zak Stone&lt;/p>
+&lt;/div>
+&lt;script>
+var links = document.links;
+var article = document.body.querySelector("article");
+for (var i = 0, linksLength = links.length; i &lt; linksLength; i++) {
+if (links[i].hostname != window.location.hostname &amp;&amp; article.contains(links[i])) {
+links[i].target = '_blank';
+}
+}
+&lt;/script>
+&lt;!-- for video player -->
+&lt;script src="https://www.youtube.com/iframe_api">&lt;/script>
+&lt;meta name="twitter:description" content="Our team of five neural networks, OpenAI Five, has started to defeat amateur human teams at Dota 2. While today we play with restrictions, we aim to beat a team of top professionals at The International in August subject only to a limited set of heroes."
+/>
+&lt;meta name="twitter:card" content="player" />
+&lt;meta name="twitter:image" content="https://blog.openai.com/content/images/2018/06/christy-v2-square.jpg" />
+&lt;meta name="twitter:player" content="https://www.youtube.com/embed/eHipy_j29Xw?rel=0&amp;showinfo=0" />
+&lt;meta name="twitter:player:width" content="600" />
+&lt;meta name="twitter:player:height" content="336" />
+&lt;/div>
+&lt;/section>
+&lt;footer class="PostFooter">
+&lt;div class="PostFooter-authors">
+&lt;span class="PostFooter-authors--label">By&lt;/span>
+&lt;/div>
+&lt;/footer>
+&lt;/article>
+&lt;/div>
+&lt;/main>
+&lt;script type="text/javascript" src="https://blog.openai.com/assets/js/app.js?v=f5ebf2b765">&lt;/script>
+&lt;svg width="0" height="0" viewBox="0 0 330 418" style='visibility:hidden;width:0;height:0;display:block;'>
+&lt;filter id="f1" x="-50%" y="-50%" width="200%" height="200%">
+&lt;feGaussianBlur in="SourceGraphic" stdDeviation="30" />
+&lt;/filter>
+&lt;defs>
+&lt;linearGradient id="blue">
+&lt;stop offset="0" stop-color="rgb(94,33,217)" />
+&lt;stop offset="1" stop-color="rgb(18,165,226)" />
+&lt;/linearGradient>
+&lt;linearGradient id="blue_green">
+&lt;stop offset="0" stop-color="rgb(47,134,215)"/>
+&lt;stop offset="1" stop-color="rgb(28,245,186)"/>
+&lt;/linearGradient>
+&lt;linearGradient id="cyan">
+&lt;stop offset="0" stop-color="rgb(64,100,216)"/>
+&lt;stop offset="1" stop-color="rgb(74,216,221)"/>
+&lt;/linearGradient>
+&lt;linearGradient id="purple">
+&lt;stop offset="0" stop-color="rgb(90,64,216)"/>
+&lt;stop offset="1" stop-color="rgb(216,74,221)"/>
+&lt;/linearGradient>
+&lt;linearGradient id="red">
+&lt;stop offset="0" stop-color="rgb(183,24,102)"/>
+&lt;stop offset="1" stop-color="rgb(235,52,52)"/>
+&lt;/linearGradient>
+&lt;linearGradient id="orange">
+&lt;stop offset="0" stop-color="rgb(211,56,56)"/>
+&lt;stop offset="1" stop-color="rgb(242,153,38)"/>
+&lt;/linearGradient>
+&lt;linearGradient id="yellow">
+&lt;stop offset="0" stop-color="rgb(232,91,6)"/>
+&lt;stop offset="1" stop-color="rgb(229,231,42)"/>
+&lt;/linearGradient>
+&lt;linearGradient id="green">
+&lt;stop offset="0" stop-color="rgb(13,163,130)"/>
+&lt;stop offset="1" stop-color="rgb(103,228,78)"/>
+&lt;/linearGradient>
+&lt;linearGradient id="black">
+&lt;stop offset="0" stop-color="rgb(0,0,0)"/>
+&lt;stop offset="1" stop-color="rgb(38,38,38)"/>
+&lt;/linearGradient>
+&lt;linearGradient id="slate-dark">
+&lt;stop offset="0" stop-color="rgb(34,34,34)"/>
+&lt;stop offset="1" stop-color="rgb(69,69,77)"/>
+&lt;/linearGradient>
+&lt;linearGradient id="slate-mid">
+&lt;stop offset="0" stop-color="rgb(59,62,76)"/>
+&lt;stop offset="1" stop-color="rgb(102,102,120)"/>
+&lt;/linearGradient>
+&lt;linearGradient id="slate-light">
+&lt;stop offset="0" stop-color="rgb(137,137,155)"/>
+&lt;stop offset="1" stop-color="rgb(181,181,196)"/>
+&lt;/linearGradient>
+&lt;!-- Outer shape -->
+&lt;symbol id="outer">
+&lt;path d="M268.7 12c-10.16-4.21-26.79-4.21-37 0l-137 56.74C84.61 73 72.85 84.71 68.64 94.87l-56.74 137c-4.21 10.16-4.21 26.79 0 37l56.74 137c4.21 10.16 16 21.92 26.13 26.13l137 56.74c10.16 4.21 26.79 4.21 37 0l137-56.74c10.16-4.21 21.92-16 26.13-26.13l56.74-137c4.21-10.16 4.21-26.79 0-37l-56.74-137c-4.21-10.16-16-21.92-26.13-26.13z" />
+&lt;/symbol>
+&lt;!-- Inner shape -->
+&lt;symbol id="inner">
+&lt;path d="M250.22 56.28l-137.2 56.84-56.84 137.21 56.84 137.21 137.21 56.83 137.2-56.84 56.84-137.21-56.84-137.2-137.21-56.84z"/>
+&lt;/symbol>
+&lt;mask id="outerMask" maskUnits="userSpaceOnUse" x="0" y="0" width="500" height="500">
+&lt;rect x="0" y="0" width="500" height="500" fill="white"/>
+&lt;use filter="url(#f1)" xlink:href="#outer" />
+&lt;/mask>
+&lt;mask id="outlineMask" maskUnits="userSpaceOnUse" x="0" y="0" width="500" height="500">
+&lt;use fill="white" xlink:href="#outer" />
+&lt;use fill="black" xlink:href="#inner" />
+&lt;/mask>
+&lt;/defs>
+&lt;symbol id="circle">
+&lt;path class="cls-1" d="M46.633,169.834A171,171,0,1,1-162.8,290.749,171,171,0,0,1,46.633,169.834Z"/>
+&lt;circle class="cls-2" cx="250.625" cy="98.984" r="171.063"/>
+&lt;/symbol>
+&lt;symbol id="hexagon">
+&lt;path d="M103.728-104.851a20.335,20.335,0,0,0-13.505,0L-16.926-60.458a20.338,20.338,0,0,0-9.549,9.55L-70.851,56.249a20.338,20.338,0,0,0,0,13.506L-26.458,176.9a20.343,20.343,0,0,0,9.551,9.55L90.249,230.828a20.336,20.336,0,0,0,13.505,0L210.9,186.435a20.337,20.337,0,0,0,9.549-9.55L264.828,69.729a20.336,20.336,0,0,0,0-13.505L220.435-50.926a20.337,20.337,0,0,0-9.551-9.549Z"/>
+&lt;path d="M186.713,201.118a20.332,20.332,0,0,0-13.506,0l-107.16,44.4a20.342,20.342,0,0,0-9.55,9.551L12.117,362.232a20.341,20.341,0,0,0,0,13.507L56.515,482.9a20.335,20.335,0,0,0,9.551,9.55l107.166,44.38a20.334,20.334,0,0,0,13.507,0l107.159-44.4a20.339,20.339,0,0,0,9.55-9.552l44.38-107.166a20.338,20.338,0,0,0,0-13.506l-44.4-107.16a20.343,20.343,0,0,0-9.552-9.55Z"/>
+&lt;/symbol>
+&lt;symbol id="square">
+&lt;path d="M184.988,276.989a14.03,14.03,0,0,1,0,19.774L38.917,442.917a14.011,14.011,0,0,1-19.762,0L-126.916,296.762a14.027,14.027,0,0,1,0-19.773L19.155,130.835a14.009,14.009,0,0,1,19.762,0Z" transform="translate(0 -47)"/>
+&lt;path d="M464.677,206.029a14.843,14.843,0,0,1,0,20.932L309.948,381.673a14.846,14.846,0,0,1-20.933,0L134.286,226.96a14.844,14.844,0,0,1,0-20.931L289.015,51.317a14.847,14.847,0,0,1,20.934,0Z" transform="translate(0 -47)"/>
+&lt;/symbol>
+&lt;symbol id="triangle">
+&lt;path d="M71.037-26.913c-4.7-8.144-12.378-8.144-17.074,0L-130,292.192c-4.695,8.144-.854,14.808,8.537,14.808H246.462c9.391,0,13.232-6.664,8.537-14.808Z"/>
+&lt;path d="M305-.476C299.5-10,290.5-10,285-.476L69.5,372.683C64,382.208,68.5,390,79.5,390h431c11,0,15.5-7.792,10-17.317Z"/>
+&lt;/symbol>
+&lt;symbol id="hexagon-icon">
+&lt;g mask="url(#outlineMask)">
+&lt;rect mask="url(#outerMask)" x="-50%" y="-50%" width="200%" height="200%" fill="black"/>
+&lt;rect mask="url(#outerMask)" x="-50%" y="-50%" width="200%" height="200%" fill="black"/>
+&lt;rect mask="url(#outerMask)" x="-50%" y="-50%" width="200%" height="200%" fill="black"/>
+&lt;/g>
+&lt;/symbol>
+&lt;/svg>
+&lt;/body>
+&lt;style>
+.PostHeader {
+background: transparent !important;
+text-align: left;
+margin-bottom: 0;
+}
+.PostHeader-inner {
+padding: calc(35px + 3rem) 25px 3rem;
+}
+#content {
+margin-top: 40px;
+}
+.PostHeader-title {
+color: inherit;
+}
+&lt;/style>
+&lt;script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Article",
+"publisher": {
+"@type": "Organization",
+"name": "OpenAI Blog",
+"logo": {
+"@type": "ImageObject",
+"url": "https://blog.openai.com/content/images/2017/03/twitter.png",
+"width": 60,
+"height": 60
+}
+},
+"author": {
+"@type": "Person",
+"name": "OpenAI",
+"url": "https://blog.openai.com/author/openai/",
+"sameAs": []
+},
+"headline": "OpenAI Five",
+"url": "https://blog.openai.com/openai-five/",
+"datePublished": "2018-06-25T14:00:10.000Z",
+"dateModified": "2018-06-25T20:53:45.000Z",
+"image": {
+"@type": "ImageObject",
+"url": "https://blog.openai.com/content/images/2018/06/dota-card-2.jpg",
+"width": 1200,
+"height": 675
+},
+"description": "Our team of five neural networks, OpenAI Five, has started to defeat amateur human teams at Dota 2.",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "https://blog.openai.com/"
+}
+}
+&lt;/script>
+&lt;/html></description></item><item><title>面向 Web 开发者的以太坊开发概览</title><link>https://www.peterlau.xyz/posts/2018-06-29-ethereum-for-web-developers/</link><pubDate>Fri, 29 Jun 2018 13:34:25 +0800</pubDate><guid>https://www.peterlau.xyz/posts/2018-06-29-ethereum-for-web-developers/</guid><description> &lt;p>我已经学习了一段时间的以太坊区块链平台，我学习的越多，以太坊就越让人兴奋。网上有各种各样学习以太坊的资源，很容易就信息过载。但是以太坊平台还在快速发展中，这些资源大部分都过期了。我花了些时间整理这些资源，才明白了什么是以太坊及以太坊是如何工作的。在与 meetup 群及其他线上社区的开发者交流过程中，我发现很多人想学习这个新技术，却遇到了我之前遇到的信息过多又过时的问题。我尝试在本文中，从 Web 开发者的角度解释以太坊。&lt;/p>
+&lt;p>如果你是一个 Web 开发者，你一定明白网络应用的客户端/服务器架构是如何工作的。&lt;/p>
+&lt;p>&lt;img src="http://paiockmru.bkt.clouddn.com/webapp-hosted-on-aws.png" alt="">&lt;/p>
+&lt;p>我们通常将自己的 Web 应用托管在主机提供商(如 AWS，Heroku 或者 VPS)上。所有的客户端都与这个中央应用交互。客户端可以是浏览器或其他使用服务的 api。当客户端访问服务器是，服务端请求数据库或缓存，读/写/更新数据库，响应客户端请求。这套架构大部分时间都能正常工作。但有时候，对于一些特定的 Web 应用，如果可以安全灵活地访问数据库，如不需要经过 Web 应用管理员同意就能访问属于自己的数据就更好了。&lt;/p>
+&lt;p>例如，你是 eBay 上一个有数百好评的热销卖家，因为一些原因你被 eBay 封号了，这会严重地影响你的生意。此时，如果你能够带着你已经获得的好评和客户迁移到其他平台(如 eBay 竞争者)就好了。eBay 通过成为卖家和买家之间的可信任第三方来提供服务，但它同时也从每笔交易中抽成。有没有一个方法，能够在买卖双方间干掉 eBay 来节省抽成费，同时你还能拥有自己的数据呢？现在就有一个实现这个目的的方法，那就是去中心化应用。以太坊就能够让开发 DApp (去中心化应用)非常简单。&lt;/p>
+&lt;p>让我们大致看下以太坊去中心化应用的架构。&lt;/p>
+&lt;p>&lt;img src="http://paiockmru.bkt.clouddn.com/dapp-hight-level.png" alt="">&lt;/p>
+&lt;p>你可能注意到了，每个客户端(浏览器)都与一个应用实例交互，没有一个所有应用都连接的中心化服务器。这意味着，任何一个想使用 DApp 的人，都需要在自己的电脑或手机上运行整个区块链拷贝。你需要先下载整个区块链才能开始使用 DApp。这个方法刚开始听起来很荒谬，但它的优势在于不需要依赖一个明天可能消失不见的中央服务器。&lt;/p>
+&lt;p>事实上你不需要花费太多的硬盘和内存来下载使用区块链。人们已经实现了很多优化方法，能够让应用在保持去中心化的同时也可以便捷地使用。&lt;/p>
+&lt;p>那么，以太坊中的区块链到底是什么？它包含以下几个部分:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>数据库:&lt;/p>
+&lt;p>每几个出现在以太坊网络中的交易被打包记录在区块中，每个区块都连接到下一个区块上。这些连接起来保存了全部交易记录的一系列区块就被称为区块链。回到上文的那个eBay 例子中，买卖双方的每笔交易，无论是付款，退款，争议都会被记录在区块链上，任何人都可以访问。以太坊使用一种叫做工作量证明的算法，确保以太坊网络中每个客户端节点都有相同的区块链拷贝。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>代码:&lt;/p>
+&lt;p>区块链的数据库部分仅仅保存数据。但是所有买卖取消交易退款的逻辑在哪里呢？在以太坊世界里，你要用一种叫做 &lt;a href="https://solidity.readthedocs.io/en/develop/">Solidity&lt;/a> 的语言来写应用代码(被称为合约)。随后你要用 Solidity 编译器把合约编译为以太坊字节码，再将字节码部署到区块链上。还有一些可以替代 Solidity 的语言，但到目前为止，Solidity 是区块链开发中最流行的语言。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>基本上可以说，区块链中保存你的数据，保存代码逻辑并在 EVM (以太坊虚拟机)中执行这些代码。&lt;/p>
+&lt;p>为了构建网页版 DApp，以太坊开发了一个方便的 JavaScript 库， &lt;a href="https://github.com/ethereum/web3.js/">web3.js&lt;/a>，它可以连接到你的区块链节点。你只需要在 angularjs，reactjs 等著名框架中引入它就可以开始开发 DApp 了。&lt;/p>
+&lt;p>另一个以太坊的重要特性是它的金融功能。如果我告诉你，你一开始使用 DApp 就会得到一个内置的银行账户，你会有什么反应？实际上，你不止得到一个银行账号，你可以在一秒内建立很多银行账号。这些银行账号被称为钱包，你可以它们用来储存钱(以太币 以太坊生态中使用的货币)和交易。&lt;/p>
+&lt;p>我故意省略了很多区块链的内部运行机制，因为我主要想集中对比常见的中心化应用与基于区块链的 DApp。希望这篇文章完成了这一目标，让你对以太坊是什么以及它如何被用来构建 DApp 有个大概的认识。&lt;/p>
+&lt;p>&lt;a href="https://medium.com/@mvmurthy/ethereum-for-web-developers-890be23d1d0c">原文链接&lt;/a>&lt;/p></description></item><item><title>如何编写 Go - Part2 完结篇</title><link>https://www.peterlau.xyz/posts/how-to-write-go-code-cn-part-2-end/</link><pubDate>Sun, 23 Apr 2017 00:09:39 +0800</pubDate><guid>https://www.peterlau.xyz/posts/how-to-write-go-code-cn-part-2-end/</guid><description> &lt;blockquote>
+&lt;h2 id="第一个库">第一个库 &lt;a href="#%e7%ac%ac%e4%b8%80%e4%b8%aa%e5%ba%93" class="anchor">🔗&lt;/a>&lt;/h2>&lt;/blockquote>
+&lt;p>我们将会写一个库并在 &lt;code>hello&lt;/code> 程序中使用它。&lt;/p>
+&lt;p>第一步是选择一个包路径 (我们会使用 &lt;code>github.com/user/stringutil&lt;/code> )并创建库文件夹:&lt;/p>
+&lt;pre>&lt;code>$ mkdir $GOPATH/src/github.com/user/stringutil
+&lt;/code>&lt;/pre>
+&lt;p>下一步，在目录下创建叫做 &lt;code>reverse.go&lt;/code> 的文件，并输入以下内容&lt;/p>
+&lt;pre>&lt;code>// Package returns its argument string reversed rune-wise left to right
+package stringutil
+// Reverse 按字符将参数 string 翻转
+func Reverse(s string) string {
+r := []rune(s)
+for i, j := 0, len(r)-1; i &amp;lt; len(r)/2; i,j=i+1,j-1 {
+r[i], r[j] = r[j], r[i]
+}
+return string(r)
+}
+&lt;/code>&lt;/pre>
+&lt;p>现在，用 &lt;code>go build&lt;/code> 来编译测试这个包:&lt;/p>
+&lt;pre>&lt;code>$ go build github.com/user/stringutil
+&lt;/code>&lt;/pre>
+&lt;p>如果你在包文件夹路径，可以只执行:&lt;/p>
+&lt;pre>&lt;code>$ go build
+&lt;/code>&lt;/pre>
+&lt;p>这不会产生一个输出文件。你必须使用 &lt;code>go install&lt;/code>，这可以将包对象放在工作空间的 &lt;code>pkg&lt;/code> 文件夹下。&lt;/p>
+&lt;p>在确认 &lt;code>stringutil&lt;/code> 包编译完成后， 修改你原始的 &lt;code>hello.go&lt;/code> (位于 &lt;code>$GOPATH/src/github.com/user/hello&lt;/code> 下) 来使用这个包:&lt;/p>
+&lt;pre>&lt;code>package main
+import (
+&amp;quot;fmt&amp;quot;
+&amp;quot;github.com/user/stringutil&amp;quot;
+)
+func main() {
+fmt.Printf(stringutil.Reverse(&amp;quot;!oG ,olleH&amp;quot;))
+}
+&lt;/code>&lt;/pre>
+&lt;p>每当 &lt;code>go&lt;/code> 工具安装一个包或二进制文件时，它同时安装了这个包包含的依赖。 所以当你安装 hello program 时，&lt;/p>
+&lt;pre>&lt;code>$ go install github.com/user/hello
+&lt;/code>&lt;/pre>
+&lt;p>stringutil 包会同时被自动安装。&lt;/p>
+&lt;p>运行新版本的程序，你会看到一个新的翻转的信息:&lt;/p>
+&lt;pre>&lt;code>$hello
+Hello, Go!
+&lt;/code>&lt;/pre>
+&lt;p>完成以上步骤后，你的工作空间看起来像这样:&lt;/p>
+&lt;pre>&lt;code>bin/
+hello
+pkg/
+linux_amd64/ # 取决于你使用的操作系统和架构
+github.com/user/
+stringutil.a # 包项目
+src/
+github.com/user/
+hello/
+hello.go
+stringutil/
+reverse.go
+&lt;/code>&lt;/pre>
+&lt;p>注意 &lt;code>go install&lt;/code> 将 &lt;code>stringutil.a&lt;/code> 放在 &lt;code>pkg/linux_amd64&lt;/code> 下和源码路径一致的子文件夹下。这样方便 &lt;code>go&lt;/code> 工具找到包文件从而避免重复编译这个包。 &lt;code>linux_amd64&lt;/code> 这部分是为了辅助交叉编译，并会反映你的操作系统及系统架构。&lt;/p>
+&lt;p>&lt;code>Go&lt;/code> 可执行文件是静态链接的；运行 &lt;code>Go&lt;/code> 程序不需要包文件。&lt;/p>
+&lt;blockquote>
+&lt;h2 id="包名">包名 &lt;a href="#%e5%8c%85%e5%90%8d" class="anchor">🔗&lt;/a>&lt;/h2>&lt;/blockquote>
+&lt;p>&lt;code>Go&lt;/code> 源代码第一行必须是 &lt;code>package name&lt;/code>。 &lt;code>name&lt;/code> 就是用来导入包的默认名字。(同一个包里的文件需要有相同的包名)。&lt;/p>
+&lt;p>&lt;code>Go&lt;/code> 中包名是导入路径最后一个元素: 作为 &lt;code>&amp;quot;crypto/rot13&amp;quot;&lt;/code> 导入的包，包名是 &lt;code>&amp;quot;rot13&amp;quot;&lt;/code>。&lt;/p>
+&lt;p>可执行命令必须使用 &lt;code>main&lt;/code> 作为 &lt;code>package name&lt;/code>。&lt;/p>
+&lt;p>&lt;code>Go&lt;/code> 不要求链接到一个二进制文件的包名不同，只需要导入路径唯一即可。&lt;/p>
+&lt;p>查看 &lt;code>Effective Go&lt;/code> 来学习更多关于 &lt;code>Go&lt;/code> 命名惯例的内容。&lt;/p>
+&lt;blockquote>
+&lt;h1 id="测试">测试 &lt;a href="#%e6%b5%8b%e8%af%95" class="anchor">🔗&lt;/a>&lt;/h1>&lt;/blockquote>
+&lt;p>&lt;code>Go&lt;/code> 包含了一个由 &lt;code>go test&lt;/code> 命令和 &lt;code>testing&lt;/code> 包组成的轻量级测试框架。
+你通过创建一个以 &lt;code>_test.go&lt;/code> 结尾的文件来写测试，文件中包含命名为 &lt;code>TestXXX&lt;/code> 参数签名为 ( &lt;code>t *testing.T&lt;/code> ) 的测试函数。测试框架执行每个这样的函数；如果函数调用了一个类似 &lt;code>t.Error&lt;/code> 或 &lt;code>t.Fail&lt;/code> 的失败函数，测试被认为未通过。
+创建文件 &lt;code>$GOPATH/src/github.com/user/stringutil/reverse_test.go&lt;/code> 来添加测试到 &lt;code>stringutil&lt;/code> 包，包含如下代码:&lt;/p>
+&lt;p>然后用 &lt;code>go test&lt;/code> 来运行测试。&lt;/p>
+&lt;pre>&lt;code>$ go test github.com/user/stringutil
+ok github.com/user/stringutil 0.165s
+&lt;/code>&lt;/pre>
+&lt;p>同样，如果你就在包路径下，可以直接执行:&lt;/p>
+&lt;pre>&lt;code>$ go test
+ok github.com/user/stringutil 0.165s
+&lt;/code>&lt;/pre>
+&lt;p>执行 &lt;code>go help test&lt;/code> 可以看到测试包的文档。&lt;/p>
+&lt;blockquote>
+&lt;h2 id="远程包">远程包 &lt;a href="#%e8%bf%9c%e7%a8%8b%e5%8c%85" class="anchor">🔗&lt;/a>&lt;/h2>&lt;/blockquote>
+&lt;p>导入路径可以用来描述如何通过 Git 或 Mercurial 这样的版本控制系统来获取包源码。go 工具通过这个特性来从远端自动获取包。例如，本文档中的例子有个托管在 Github 上的 Git 仓库 &lt;a href="https://github.com/golang/example">github.com/golang/example&lt;/a>。如果你在导入时加上这个仓库，go get 会自动获取，构建并安装这个包。&lt;/p>
+&lt;pre>&lt;code>$ go get github.com/golang/example/hello
+$ $GOPATH/bin/hello
+Hello，Go examples！
+&lt;/code>&lt;/pre>
+&lt;p>如果特定的一个包没有在工作空间中，&lt;code>go get&lt;/code> 会将它放在 &lt;code>GOPATH&lt;/code> 指定的第一个工作空间。(如果这个包已经存在，那么 &lt;code>go get&lt;/code> 会跳过获取远程代码，仅进行 &lt;code>go install&lt;/code> 步骤)。&lt;/p>
+&lt;p>执行过上述的 &lt;code>go get&lt;/code> 命令后，工作目录会变成一下结构:&lt;/p>
+&lt;pre>&lt;code>bin/
+hello
+pkg/
+linux_amd64/ # 取决于你使用的操作系统和架构
+github.com/golang/example/
+stringutil.a # 包项目
+github.com/user/
+stringutil.a # 包项目
+src/
+github.com/golang/example/
+hello/
+hello.go
+stringutil/
+reverse.go
+reverse_test.go
+github.com/user/
+hello/
+hello.go
+stringutil/
+reverse.go
+reverse_test.go
+&lt;/code>&lt;/pre>
+&lt;p>托管在 &lt;code>GitHub&lt;/code> 上的 &lt;code>hello&lt;/code> 命令依赖于同一个仓库里的 &lt;code>stringutil&lt;/code> 包。&lt;code>hello.go&lt;/code> 文件里导入包时使用了同样的导入规则，因此 &lt;code>go get&lt;/code> 命令可以定位并安装这个依赖。&lt;/p>
+&lt;p>&lt;code>import &amp;quot;github.com/golang/example/stringutil&amp;quot;&lt;/code> 这种方法是使你的包可以被别人使用的最简单途径。 &lt;code>Go Wiki&lt;/code> 和 &lt;code>godoc.org&lt;/code> 提供了其他 &lt;code>Go&lt;/code> 项目列表。&lt;/p>
+&lt;p>查看 &lt;code>go help importpath&lt;/code> 来了解更多通过 &lt;code>go tool&lt;/code> 使用远程仓库的信息。&lt;/p></description></item><item><title>如何编写 Go - Part1</title><link>https://www.peterlau.xyz/posts/how-to-write-go-code-cn-part-1/</link><pubDate>Wed, 19 Apr 2017 11:49:05 +0800</pubDate><guid>https://www.peterlau.xyz/posts/how-to-write-go-code-cn-part-1/</guid><description> &lt;h3 id="简介">简介 &lt;a href="#%e7%ae%80%e4%bb%8b" class="anchor">🔗&lt;/a>&lt;/h3>&lt;p>本文档描述了如何开发一个简单的 &lt;code>Go&lt;/code> 包，并介绍了获取，构建和安装 &lt;code>Go&lt;/code> 包和命令的标准方法 &lt;code>go tool&lt;/code>。&lt;/p>
+&lt;p>&lt;code>go tool&lt;/code> 要求你以一种特殊的方式组织代码。请详细阅读本文档。它介绍了设置和运行 &lt;code>Go&lt;/code> 的最简单方法。&lt;/p>
+&lt;h3 id="代码组织">代码组织 &lt;a href="#%e4%bb%a3%e7%a0%81%e7%bb%84%e7%bb%87" class="anchor">🔗&lt;/a>&lt;/h3>&lt;h4 id="概览">概览 &lt;a href="#%e6%a6%82%e8%a7%88" class="anchor">🔗&lt;/a>&lt;/h4>&lt;ul>
+&lt;li>&lt;code>Go&lt;/code> 程序员通常将全部的 &lt;code>Go&lt;/code> 代码放在单独的工作空间。&lt;/li>
+&lt;li>一个工作空间包含了很多版本控制仓库 (例如由 &lt;code>Git&lt;/code> 管理)。&lt;/li>
+&lt;li>每个仓库包含一个或多个包。&lt;/li>
+&lt;li>每个包由单独目录下一个或多个 &lt;code>Go&lt;/code> 源代码组成。&lt;/li>
+&lt;li>包文件夹路径决定了包的 &lt;code>import path&lt;/code> 。&lt;/li>
+&lt;/ul>
+&lt;p>注意，&lt;code>Go&lt;/code> 的代码组织与其他编程语言不同在每个项目由自己独立的工作空间， 而且工作空间与版本控制仓库紧密联系。&lt;/p>
+&lt;h4 id="工作空间">工作空间 &lt;a href="#%e5%b7%a5%e4%bd%9c%e7%a9%ba%e9%97%b4" class="anchor">🔗&lt;/a>&lt;/h4>&lt;p>工作空间是一个由三个子目录组成的文件夹&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>src&lt;/code> 包含 &lt;code>Go&lt;/code> 源代码文件&lt;/li>
+&lt;li>&lt;code>pkg&lt;/code> 包含 &lt;code>Go&lt;/code> 包&lt;/li>
+&lt;li>&lt;code>bin&lt;/code> 包含可执行命令&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>go tool&lt;/code> 编译源码包并将生成的二进制文件安装到 &lt;code>pkg&lt;/code> 和 &lt;code>bin&lt;/code> 文件夹。&lt;/p>
+&lt;p>&lt;code>src&lt;/code> 子目录通常包含多个版本控制仓库(如 &lt;code>Git&lt;/code> 或 &lt;code>Mercurial&lt;/code> )，跟踪一个或多个包的开发。&lt;/p>
+&lt;p>下边的例子让你看下实际的工作空间样子：&lt;/p>
+&lt;pre>&lt;code>bin/
+hello # command executable
+outyet # command executable
+pkg/
+linux_amd64/
+github.com/golang/example/
+stringutil.a # package object
+src/
+github.com/golang/example/
+.git/ # Git repository metadata
+hello/
+hello.go # command source
+outyet/
+main.go # command source
+main_test.go # test source
+stringutil/
+reverse.go # package source
+reverse_test.go # test source
+golang.org/x/image/
+.git/ # Git repository metadata
+bmp/
+reader.go # package source
+writer.go # package source
+... (many more repositories and packages omitted) ...
+&lt;/code>&lt;/pre>
+&lt;p>上边的文件树展示了一个包含两个仓库(&lt;code>example&lt;/code> 和&lt;code> image&lt;/code>)的工作空间。&lt;code>example&lt;/code> 仓库包含两个命令(&lt;code>hello&lt;/code> 和 &lt;code>outyet&lt;/code>)以及一个包(&lt;code>stringutil&lt;/code>)。&lt;code>image&lt;/code> 仓库包含 &lt;code>bmp&lt;/code> 包和其他包。&lt;/p>
+&lt;p>一个典型的工作空间包含多个仓库和命令。 大部分 &lt;code>Go&lt;/code> 程序员将全部 &lt;code>Go&lt;/code> 源代码和依赖放在一个单独的工作空间中。&lt;/p>
+&lt;p>命令和库是由多种源码包构建而来。 我们稍后会讨论这个区别。&lt;/p>
+&lt;h4 id="gopath-环境变量">&lt;code>GOPATH&lt;/code> 环境变量 &lt;a href="#gopath-%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" class="anchor">🔗&lt;/a>&lt;/h4>&lt;p>&lt;code>GOPATH&lt;/code> 环境变量指定了工作空间的位置。默认是你的家目录下叫做 &lt;code>go&lt;/code> 的文件夹( &lt;code>UNIX&lt;/code> 下是 &lt;code>$HOME/go&lt;/code>，&lt;code>Paln9&lt;/code> 下是 &lt;code>$home/go&lt;/code>， &lt;code>Windows&lt;/code> 下 &lt;code>%USERPROFILE%\go&lt;/code> ( 通常是 &lt;code>C:\Users\YourName\go&lt;/code> ) )。如果你想在另外一个位置下工作， 你需要设置 &lt;code>GOPATH&lt;/code> 为另外一个位置。(另一个常用设置方法是设置 &lt;code>GOPATH&lt;/code> 为 &lt;code>$HOME&lt;/code>。) 注意 &lt;code>GOPATH&lt;/code> 不能是 &lt;code>Go&lt;/code> 安装路径。&lt;/p>
+&lt;p>&lt;code>go env GOPATH&lt;/code> 命令打印出当前有效 &lt;code>GOPATH&lt;/code> ；如果没设置这个值，就打印出默认位置。&lt;/p>
+&lt;p>简便起见，将工作空间的 &lt;code>bin&lt;/code> 子目录添加到 &lt;code>PATH&lt;/code> 变量里:&lt;/p>
+&lt;p>&lt;code>$ export PATH=$PATH:$(go env GOPATH)/bin&lt;/code>&lt;/p>
+&lt;p>文档剩余的代码片段使用 &lt;code>$GOPATH&lt;/code> 替代 &lt;code>$(go env GOPATH)&lt;/code>。 为了让脚本可以在你没设置 &lt;code>GOPATH&lt;/code> 的情况下运行，你可以在这些命令里替换 &lt;code>$HOME/go&lt;/code> 或者运行&lt;/p>
+&lt;p>&lt;code>$ export GOPATH=$(go env GOPATH)&lt;/code>&lt;/p>
+&lt;p>想了解更多关于 &lt;code>GOPATH&lt;/code> 环境变量的信息，可以查看 &lt;code>go help gopath&lt;/code>&lt;/p>
+&lt;p>关于使用自定义工作空间的知识，可查阅 &lt;a href="https://golang.org/wiki/SettingGOPATH">set the GOPATH environment variable&lt;/a>.&lt;/p>
+&lt;h4 id="import-paths">Import paths &lt;a href="#import-paths" class="anchor">🔗&lt;/a>&lt;/h4>&lt;p>导入路径 (&lt;code>import paths&lt;/code>) 是唯一地标识一个包的字符串。 一个包的导入路径对应工作空间的位置或者一个远端的代码仓库。&lt;/p>
+&lt;p>标准库的包被赋予了类似&lt;code> &amp;quot;fmt&amp;quot;&lt;/code> 和&lt;code> &amp;quot;net/http&amp;quot;&lt;/code> 的缩写形式。对你自己的包来说，你必须选择一个不大可能和标准库或其他外部库冲突的基路径。&lt;/p>
+&lt;p>如果你将代码保存在某个源代码库中， 你应该使用源码地址的根地址作为你的基路径。例如， 如果你有个位于 &lt;code>github.com/user&lt;/code> 的帐号， 这应该作为包的基路径。&lt;/p>
+&lt;p>注意你构建包并不需要将它推送到远端。 通过假定你未来会推送到远端，而学习着这样组织代码，仅仅是为了帮助你养成一个好习惯。实际上你可以选取任何路径名，只需要保证它足够长从而与 &lt;code>Go&lt;/code> 标准库生态群中的其他包不发生命名冲突。&lt;/p>
+&lt;p>我们会使用 &lt;code>github.com/user&lt;/code> 作为基路径。 在你的工作空间创建一个目录保存代码:&lt;/p>
+&lt;p>&lt;code>$ mkdir -p $GOPATH/src/github.com/user&lt;/code>&lt;/p>
+&lt;h4 id="你的第一个程序">你的第一个程序 &lt;a href="#%e4%bd%a0%e7%9a%84%e7%ac%ac%e4%b8%80%e4%b8%aa%e7%a8%8b%e5%ba%8f" class="anchor">🔗&lt;/a>&lt;/h4>&lt;p>为了编译并运行一个简单程序， 首先选择一个包路径 (我们会使用 &lt;code>github.com/user/hello&lt;/code> ) 并创建一个对应的文件夹:&lt;/p>
+&lt;p>&lt;code>$ mkdir -p $GOPATH/src/github.com/user/hello&lt;/code>&lt;/p>
+&lt;p>下一步，创建一个叫做 &lt;code>hello.go&lt;/code> 的文件， 包含以下 &lt;code>Go&lt;/code> 代码。&lt;/p>
+&lt;pre>&lt;code>package main
+import &amp;quot;fmt&amp;quot;
+func main() {
+fmt.Printf(&amp;quot;Hello, world.\n&amp;quot;)
+}
+&lt;/code>&lt;/pre>
+&lt;p>现在你可以通过 &lt;code>go tool&lt;/code> 编译并安装这个程序:&lt;/p>
+&lt;p>&lt;code>go install github.com/user/hello&lt;/code>&lt;/p>
+&lt;p>你可以在系统的任何地方执行这个命令(当然需要在当前的 &lt;code>shell session&lt;/code> 下)。 &lt;code>go tool&lt;/code> 通过 &lt;code>GOPATH&lt;/code> 工作空间下 &lt;code>github.com/user/hello&lt;/code> 找到源代码。&lt;/p>
+&lt;p>如果从包目录安装也可以忽略包路径&lt;/p>
+&lt;p>&lt;code>$ cd $GOPATH/src/github.com/user/hello&lt;/code>&lt;/p>
+&lt;p>&lt;code>go install&lt;/code>&lt;/p>
+&lt;p>这一命令编译 &lt;code>hello&lt;/code> 命令， 产生一个可执行文件。随后将其安装到工作空间的 bin 文件夹下。 在我们的例子中， 这个路径是 &lt;code>$GOPATH/bin/hello&lt;/code>。&lt;/p>
+&lt;p>&lt;code>go tool&lt;/code> 只会在出现错误时打印输出， 如果上述命令没有任何输出就说明执行成功了。&lt;/p>
+&lt;p>我们现在可以通过全路径调用生成的可执行文件&lt;/p>
+&lt;pre>&lt;code>$ $GOPATH/bin/hello
+Hello, world.
+&lt;/code>&lt;/pre>
+&lt;p>另外，如果你已经将 $GOPATH/bin 添加到 PATH，只需要直接调用二进制文件名字：&lt;/p>
+&lt;pre>&lt;code>$hello
+Hello, world.
+&lt;/code>&lt;/pre>
+&lt;p>如果你使用版本控制系统， 现在你就可以初始化一个仓库了， 添加文件，提交你的第一个修改。 再说一下， 这一步是可选的：不用源码管理系统，你也可以写 &lt;code>Go&lt;/code> 代码。&lt;/p>
+&lt;p>&lt;code>$ cd $GOPATH/src/github.com/user/hello&lt;/code>&lt;/p>
+&lt;pre>&lt;code>$ git init
+Initialized empty Git repository in /home/user/work/src/github.com/user/hello/.git/
+$ git add hello.go
+$ git commit -m 'initial commit'
+&lt;/code>&lt;/pre>
+&lt;p>将代码推送到远端仓库就留给读者作为练习了。&lt;/p></description></item><item><title>Vagrant Blog 测试</title><link>https://www.peterlau.xyz/posts/vagrant_test/</link><pubDate>Mon, 22 Jun 2015 12:14:54 +0000</pubDate><guid>https://www.peterlau.xyz/posts/vagrant_test/</guid><description> &lt;p>Vagrant 和 Docker 的出现， 使得开发环境的部署极其便捷。开发者可以无视主机的操作环境而瞬间进入开发状态。 OS 之争可以结束了。为了兼顾娱乐和开发的需求，完全可以在 windows 系统下安装 vagrant，从而获得 Linux 环境。&lt;/p>
+&lt;p>本文在 Host 机器下编写，通过软链接关联到 Guest 系统的 Hexo 文章源文件中。进行测试。&lt;/p>
+&lt;p>by &lt;strong>Peter Lau&lt;/strong>&lt;/p></description></item><item><title>针对 GOEAST 的 Python 脚本</title><link>https://www.peterlau.xyz/posts/python-script-for-goeast/</link><pubDate>Sun, 16 Nov 2014 19:49:49 +0000</pubDate><guid>https://www.peterlau.xyz/posts/python-script-for-goeast/</guid><description> &lt;p>真没打算有人能搜到这个文章, 过去两周时间, 为了能批量从 GOEAST (中国科学院基因所的 GO 富集聚类分析服务) 下载分析结果, 我写了这个脚本. 等于是复习了 Requests 这个http网络库.&lt;/p>
+&lt;p>整个的风格是过程式的. 多文件任务没有进行多线程或多进程优化, 导致效率极低下. 更多代码见[Github][1]&lt;/p>
+&lt;p>[1]: &lt;a href="https://github.com/Peter">https://github.com/Peter&lt;/a> Lau/Userscript/blob/master/python/spiders/dataup.py&lt;/p></description></item><item><title>使用PHP开发网站的业余选手感想</title><link>https://www.peterlau.xyz/posts/use-php-make-a-website/</link><pubDate>Fri, 14 Nov 2014 21:41:37 +0000</pubDate><guid>https://www.peterlau.xyz/posts/use-php-make-a-website/</guid><description> &lt;p>这是个疯狂的时代. 自从 Facebook 诞生以来, 地球上出现了太多语言可以编写网页应用. 从保罗格雷厄姆推崇的 LISP/Arc 到最近的新生语言 Go. 其中最成功的当属 PHP.看看当下培训机构的火爆就可以知道, 而且国内各大网络服务招募的也都是 PHP 方面的人. 从百度到阿里, 从新兴小米到创业机构, 似乎 Python/Ruby/Node 这些新成员没有分走太多份额, 加上 ASP.net 和 Java. 这才是三强争霸. PHP 的语言特色并不为人推崇, 但其快速部署, 便于发布的特色决定了其流行度.&lt;/p>
+&lt;p>PHP 的语法并不复杂, 就像是脚本化的 C 语言, 只需要一台支持 PHP 解析的服务器, 放上代码, 设置好域名, OK 一切就绪, 项目上线了.&lt;/p>
+&lt;p>随着时间发展, PHP 也变得更加模块化和组件化. 纷杂的框架往往扰乱了人们对于语法的了解, 在我看来最佳的学习地方就是官网.&lt;/p>
+&lt;p>PHP5 开始有了面向对象语法. 支持封装, 继承. 然而在我看来正常的流程是先过程式, 再面向对象化, 至于函数式编程更像是一种代码书写风格而非组织风格. 使用过程式写了很多代码多次重复了自己以后, 就更能体会到面向对象的好处, 代码复用.&lt;/p>
+&lt;p>APEC 会议给我们放了一周假期, 因此我就抽了两天时间体验了下 PHP 直接写网站的酸爽. 服务器不用管; 页面渲染, PHP 内嵌入 HTML; 数据库连接, &lt;code>mysql_connect()&lt;/code>; Cookie管理, &lt;code>$_Cookie[]&lt;/code>; GET 和 POST, &lt;code>$_GET[] $_POST[]&lt;/code>; 一个基本的网站就是需要这些部分. 其中发现自己写一个页面还好, 多页面就无法控制那么多的变量名. 到这里, 基本的后端/服务端就做完了.&lt;/p>
+&lt;p>当然也仅仅是基本能用, 很多验证, 异常处理都没有, 也没有测试, 模块化. 基本的增删改查就用掉了两天时间. 这就是框架的威力, PHP 的框架超级之多, 我使用过 Yii, CI 和 CakePHP, 魔法一样的数据库操作, 快捷但很迷惑. 最后我计划找时间看下cakephp,yii 以及Lavreal. Lavreal看起来才是像是现代框架, 很迷人.&lt;/p>
+&lt;p>再说说最近对Web开发的体会. 基本上已经完成了 页面显示, 页面逻辑, 后台数据的分离. 服务端使用各种服务器语言, 应用端采用 AngularJS等前端框架, 显示层使用 ReactJS, HTMLCSS框架使用Bootstrap/Pure/Amaze等UI框架. 这也是我以后学习的方向.&lt;/p>
+&lt;p>update 2014-11-16&lt;/p>
+&lt;p>目前还在写那个答题网站的后台管理, 我也发现了 PHP 的面向对象是如此重要的, 希望能够找到实现类似多参数, 具名参数的写法. 数据库模块还是用的已经废弃的接口, 而且还有很多数据库的知识不具备. 有时间再替换用上 PDO 吧.&lt;/p>
+&lt;p>最近一直是在处理序列数据, 希望能够有更多时间写代码啊. 试用了一下 CakePHP 都跟 ROR 学习的 脚手架吗? 直接就产生了 model view controller, 打算用着个开发个小应用吧. 恩&lt;/p></description></item><item><title>Hylang 快速指南</title><link>https://www.peterlau.xyz/posts/hylang-quickstart/</link><pubDate>Sun, 12 Oct 2014 12:30:43 +0000</pubDate><guid>https://www.peterlau.xyz/posts/hylang-quickstart/</guid><description> &lt;p>前几天在 &lt;a href="http://xahlee.info/">XahLee&lt;/a> 的博客上看到关于 Ruby 和 Python 的讨论, 说 Python 太要求 oop 形式而又不够 oop ,例如, 没有 &lt;code>3.times&lt;/code> 这种用法, 却有 &lt;code>len(str)&lt;/code> , 而且不够函数式 ( &amp;laquo;黑客与画家&amp;raquo;提到 &amp;ldquo;Perl Python Ruby&amp;rdquo;, 越在后越函数式).&lt;/p>
+&lt;ul>
+&lt;li>Markdown 括号加括号 格式就混乱 尽量少用&lt;/li>
+&lt;/ul>
+&lt;p>今天看到了 Hylang, 一个允许用 Lisp 风格写 Python 的解释器.&lt;/p>
+&lt;p>翻译下5分钟入门:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>(Thanks to Karen Rustad for Cuddles!)&lt;/p>
+&lt;p>快速使用 HY:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>创建 Python 虚拟环境 : &lt;a href="http://andyhelix.gitcafe.com/2014/09/10/have-fun-with-django-on-sae/">见前篇&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>激活虚拟环境&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>从 PyPI 安装 hy: &lt;code>pip install hy&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用&lt;code>hy&lt;/code>打开 REPL&lt;/p>
+&lt;p>&lt;code>=&amp;gt; (print &amp;quot;Hy!&amp;quot;)&lt;/code>&lt;/p>
+&lt;p>&lt;code>Hy!&lt;/code>&lt;/p>
+&lt;p>&lt;code>=&amp;gt; (defn salutationsnm [name] (print (+ &amp;quot;Hy &amp;quot; name &amp;quot;!&amp;quot;)))&lt;/code>&lt;/p>
+&lt;p>&lt;code>=&amp;gt; (salutationsnm &amp;quot;YourName&amp;quot;)&lt;/code>&lt;/p>
+&lt;p>&lt;code>Hy YourName!&lt;/code>&lt;/p>
+&lt;p>etc&lt;/p>
+&lt;p>使用 CTRL + D 退出&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>脚本运行&lt;/p>
+&lt;p>保存&lt;code>(print &amp;quot;I was going to code in python syntax, but then I got hy.&amp;quot;)&lt;/code>为&lt;code>awesome.hy&lt;/code>&lt;/p>
+&lt;p>执行 &lt;code>hy awesome.hy&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>Take a deep breath so as to not hyperventilate&lt;/p>
+&lt;p>Smile villainously and sneak off to your hydeaway and do unspeakable things&lt;/p>
+&lt;p>既然 Python 中有模块支持函数式编程, 这样一种解释器的意义在哪里?&lt;/p>
+&lt;p>对于学习两种语言语法树的转换很有意思吧.&lt;/p></description></item><item><title>一次由 Linux 下无声音引发的权限错误惊魂记</title><link>https://www.peterlau.xyz/posts/sudo-mistake/</link><pubDate>Sat, 04 Oct 2014 13:57:00 +0000</pubDate><guid>https://www.peterlau.xyz/posts/sudo-mistake/</guid><description> &lt;p>今天遇到了一个惊险的事情, 笔记本的 Ubuntu 系统没有声音.&lt;/p>
+&lt;p>开始以为是模块没有加载, 检查后发现自己认不出来哪个是的. 用 alasmixer 结果显示 &lt;code> alsamixer cannot open mixer: No such file or directory&lt;/code> 在网上搜了一通以后发现, 有个命令需要 sudo 权限.&lt;/p>
+&lt;p>于是就 sudo 执行, 出来问题了, 居然说我不在 sudoer 用户组里.&lt;/p>
+&lt;p>使用 groups 查看用户组, 发现只有 username 和 www-data&lt;/p>
+&lt;p>结果很明显:&lt;/p>
+&lt;p>昨天在给 yii 框架用户数据赋予服务器写权限时, 我用的是该死的 &lt;code>usermod -G groupname username&lt;/code> 这就使得我的用户名离开了其他所有的组.&lt;/p>
+&lt;p>实际应该使用 &lt;code>usermod -a -G groupname username&lt;/code>&lt;/p>
+&lt;p>或者 &lt;code>gpasswd -a username groupname&lt;/code>&lt;/p>
+&lt;p>好吧, 我现在的问题就是要在一个只有 root 和一个 user 的机器上, 给这个 user sudo 权限&amp;hellip;&lt;/p>
+&lt;p>首先我没有一个能有 sudo 权限的帐号啊, root 不知道有没有设密码&amp;hellip;&lt;/p>
+&lt;p>恩, 破解 root 密码.&lt;/p>
+&lt;p>使用 grub 进入 &lt;code>init 1&lt;/code> 的单用户界面&lt;/p>
+&lt;p>对了, 网上一堆 grub 的命令, 我的是 grub2 &amp;hellip; 囧&lt;/p>
+&lt;p>其实还算简单, 在启动页对应启动项按 e , 在 &lt;code>linux /boot ...&lt;/code> 一堆里的 root 参数后加上 &lt;code>init 1&lt;/code> 再后边的参数删去, 然后就 F10 启动. OK&lt;/p>
+&lt;p>&lt;strong>反思&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>1. 命令行连个恐怖提示都没有 下次可能就 `rm -rf /` 了吧...
+2. 一定添加一个备用帐号
+3. 我一定记得给 root 加上密码, 这次好好设置这里了. 诶要, 我的 root 密码多少来着???
+&lt;/code>&lt;/pre></description></item><item><title>跟风 bash shellshock</title><link>https://www.peterlau.xyz/posts/bash_shellshock/</link><pubDate>Sat, 27 Sep 2014 21:23:53 +0000</pubDate><guid>https://www.peterlau.xyz/posts/bash_shellshock/</guid><description> &lt;p>##互联网安全&lt;/p>
+&lt;p>信息世界从来没有绝对的安全, 权限争夺, 资源争夺才是这里永远的主题.&lt;/p>
+&lt;p>Linux/Unix 总被标榜为安全性较好的系统, 憧憬这全球开源力量能够迅速识别并修复漏洞, 阻击信息灾难. Linux 在维基百科病毒条目下仅有百余个知名病毒, 也常被用来说明这一系统的安全性. 但更多的人们还是盲目的, 不了解背后繁杂的信息技术知识, 也只能任凭各家安全服务公司的营销产品打着安全的名义肆意支配用户电脑, 这是 windows 世界的画面. 而 Linux 系统下呢? 缺乏友好的安全提示, 也常常使得我担心自己系统安全问题, 关闭端口, 设置权限, 设置可靠密码, 真的可以防范住来自未知世界的侵入吗?&lt;/p>
+&lt;p>&amp;ldquo;我用的是小众系统&amp;rdquo;, &amp;ldquo;大多数攻击针对服务器的&amp;rdquo;, &amp;ldquo;我的信息没有任何价值&amp;rdquo; 这些借口只是一厢情愿. 例如分布式拒绝式攻击, 仅仅是通过大量的肉鸡机器发送信息就可以完成, 这使的毫无信息价值的个人电脑也成为攻击目标. 另外针对 Linux 服务器的攻击完全可以应用在个人电脑上.&lt;/p>
+&lt;p>上次爆出的 heartbleed 漏洞还可以说离我有点远, 但这次的 bash shellshock, 当在 shell 中应用测试代码的时候, 看到结果才感觉到漏洞是存在于系统中的. 如何修复这个漏洞呢? Linux 上并没有类似安全服务公司会弹出窗口告诉你系统已经修复请重启, 而且按照目前的情况, 这一漏洞还没有完全修复. 样例代码只是输出个语句, 如果是 &lt;code>rm -rf /&lt;/code> 呢? 整个系统都完了.&lt;/p>
+&lt;p>安全领域也是一个无底洞啊.&lt;/p>
+&lt;p>&lt;a href="http://zhuanlan.zhihu.com/drops">http://zhuanlan.zhihu.com/drops&lt;/a>&lt;/p>
+&lt;p>&lt;a href="http://zhuanlan.zhihu.com/drops/19857156">http://zhuanlan.zhihu.com/drops/19857156&lt;/a>&lt;/p></description></item><item><title>新浪云平台使用Django填坑指南</title><link>https://www.peterlau.xyz/posts/have-fun-with-django-on-sae/</link><pubDate>Wed, 10 Sep 2014 15:09:30 +0000</pubDate><guid>https://www.peterlau.xyz/posts/have-fun-with-django-on-sae/</guid><description> &lt;h2 id="新浪云平台使用手册">新浪云平台使用手册 &lt;a href="#%e6%96%b0%e6%b5%aa%e4%ba%91%e5%b9%b3%e5%8f%b0%e4%bd%bf%e7%94%a8%e6%89%8b%e5%86%8c" class="anchor">🔗&lt;/a>&lt;/h2>&lt;p>&lt;a href="http://sae.sina.com.cn/doc/python/index.html">for python&lt;/a>&lt;/p>
+&lt;p>注意 django 的开发框架默认是 1.4 的, 如果你已经安装了 1.6 甚至 1.7 怎么办呢?&lt;/p>
+&lt;p>当然用 virtualenv + virtualenvwrapper 咯&lt;/p>
+&lt;p>使用 &lt;code>pip install virtualenvwrapper&lt;/code> 在环境配置文件 &lt;code>$HOME/.bashrc&lt;/code> 中添加 &lt;code>source /usr/local/bin/virtualenvwrapper.sh&lt;/code> 然后 &lt;code>mkvirtualenv&lt;/code> 命令创建新环境 比如 &lt;strong>django14&lt;/strong> 这样将在 $HOME/.virtualenvis/ 中建立隔离的开发环境&lt;/p>
+&lt;blockquote>
+&lt;p>切换环境&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;ul>
+&lt;li>workon [env]&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>随时使用“workon 环境名”可以进行环境切换，如果不带环境名参数，则显示当前使用的环境&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;ul>
+&lt;li>deactivate&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>在某个环境中使用，切换到系统的python环境&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> 其他命令
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - showvirtualenv [env] 显示指定环境的详情。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - rmvirtualenv [env] 移除指定的虚拟环境，移除的前提是当前没有在该环境中工作。如在该环境工作，先使用deactivate退出。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - cpvirtualenv [source] [dest] 复制一份虚拟环境。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - cdvirtualenv [subdir] 把当前工作目录设置为所在的环境目录。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - cdsitepackages [subdir] 把当前工作目录设置为所在环境的sitepackages路径。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - add2virtualenv [dir] [dir] 把指定的目录加入当前使用的环境的path中，这常使用于在多个project里面同时使用一个较大的库的情况。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;pre>&lt;code> - toggleglobalsitepackages -q 控制当前的环境是否使用全局的sitepackages目录。
+&lt;/code>&lt;/pre>
+&lt;/blockquote>
+&lt;p>接下来使用 django14 环境中的 django-admin.py 创建项目&lt;/p>
+&lt;p>&lt;code> ~/.virtualenvs/django14/bin/django-admin.py startproject djangosite&lt;/code>&lt;/p>
+&lt;h2 id="sae_restful_mysql-问题">sae._restful_mysql 问题 &lt;a href="#sae_restful_mysql-%e9%97%ae%e9%a2%98" class="anchor">🔗&lt;/a>&lt;/h2>&lt;p>本身用于在本地直接生成远端数据库表的库, 需要安装 sae-python-dev 直接 pip install sae-python-dev 即可&lt;/p>
+&lt;p>在本地使用 python manager.py syncdb 就可以创建远端数据库表了&lt;/p>
+&lt;p>本地创建完了, 是不是挺高兴, 但是上传到 SAE 就会提示 找不到 _restful_mysql 为何?&lt;/p>
+&lt;p>可见 sae-python-dev 是作为第三方库提供的. 因此或者用&lt;a href="http://sae.sina.com.cn/doc/python/faq.html">安装第三方库的方法&lt;/a>或者上传前注释掉这两句&lt;/p>
+&lt;p>PS: 使用 django1.6 实际是可以用的, 甚至不需要这个 monkey 就可以在远端创建表, 看来 SAE 已经更新了版本了?&lt;/p>
+&lt;p>PSS: 总之, 已经可以在 SAE 上开发带数据库支持的 Django 应用了. 让我们开始海盗之旅咯&lt;/p></description></item><item><title>开始使用Docker</title><link>https://www.peterlau.xyz/posts/docker-newer/</link><pubDate>Fri, 05 Sep 2014 20:16:09 +0000</pubDate><guid>https://www.peterlau.xyz/posts/docker-newer/</guid><description> &lt;h1 id="什么是-docker">什么是 Docker? &lt;a href="#%e4%bb%80%e4%b9%88%e6%98%af-docker" class="anchor">🔗&lt;/a>&lt;/h1>&lt;p>Go语言编写的应用容器.所谓应用容器,就是可以像虚拟机那样下载下来,已经配置好大部分的开发环境(比如有了一些 Python 包, Gem 装好了一部分).新一代的一次构建到处运行.据说开始是基于 LXC ,这个还没有研究.不过已经宣布将来不再依赖这个, 而是变成可插拔的插件, 插件流行啊.&lt;/p>
+&lt;p>这货像是个虚拟机,但不带图形界面,当然对我这种命令控没影响.说起来像是通过 SSH 访问Vbox.&lt;/p>
+&lt;h1 id="开始使用">开始使用 &lt;a href="#%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8" class="anchor">🔗&lt;/a>&lt;/h1>&lt;p>注册 docker.io dockerhub 帐号 不注册也可以用&amp;hellip;&lt;/p>
+&lt;ol>
+&lt;li>curl -s &lt;a href="https://get.docker.io/ubuntu/">https://get.docker.io/ubuntu/&lt;/a> | sudo sh&lt;/li>
+&lt;li>sudo docker run -i -t ubuntu /bin/bash&lt;/li>
+&lt;/ol>
+&lt;p>下载的是一个ubuntu镜像 或者 ubuntu:14.04 指定是 14.04 版本&lt;/p>
+&lt;p>下载后的镜像称为容器, 在容器内可以运行应用如 bash&lt;/p>
+&lt;ol start="3">
+&lt;li>sudo docker run ubuntu:14.04 /bin/echo &amp;lsquo;Hello world&amp;rsquo;&lt;/li>
+&lt;/ol>
+&lt;p>输出 Hello world 在容器内执行, 返回结果&lt;/p>
+&lt;ol start="4">
+&lt;li>sudo docker run -t -i ubuntu:14.04 /bin/bash&lt;/li>
+&lt;/ol>
+&lt;p>执行交互式容器, 不过是在14.04版本中运行的&lt;/p>
+&lt;ol start="5">
+&lt;li>每次 docker run 的时候就是通过一个镜像创建了一个容器, 如后台容器&lt;/li>
+&lt;/ol>
+&lt;p>守护进程 sudo docker run -d ubuntu:14.04 /bin/sh -c &amp;ldquo;while true; do echo hello world; sleep 1; done&amp;rdquo;&lt;/p>
+&lt;p>脚本会一直输出&amp;quot;hello word&amp;quot;&lt;/p>
+&lt;p>只有通过 sudo docker ps 查看后台进程找到指代名称&lt;/p>
+&lt;p>然后用 sudo docker log short-name 查看结果&lt;/p>
+&lt;ol start="6">
+&lt;li>
+&lt;p>sudo docker stop 结束这个后台&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>只输入docker没有任何其它选项来查看docker客户端所有的命令&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>输入Docker [command]，这里会看到docker命令的使用方法：&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>$ sudo docker attach&lt;/p>
+&lt;ol start="9">
+&lt;li>sudo docker run -d -P training/webapp python app.py&lt;/li>
+&lt;/ol>
+&lt;p>-d 后台执行&lt;/p>
+&lt;p>-P docker网络端口从主机映射到容器&lt;/p>
+&lt;p>training/webapp 指定镜像&lt;/p>
+&lt;p>python 容器&lt;/p>
+&lt;p>see ubuntu version:
+cat /etc/issue
+see whoami
+whoami&lt;/p>
+&lt;ol start="10">
+&lt;li>查看web应用容器&lt;/li>
+&lt;/ol>
+&lt;p>sudo docker ps -l # -l 返回最后的容器状态&lt;/p>
+&lt;p>CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+9a57847b4be6 training/webapp:latest &amp;ldquo;python app.py&amp;rdquo; 5 minutes ago Up 5 minutes 0.0.0.0:49153-&amp;gt;5000/tcp trusting_sammet&lt;/p>
+&lt;p>容器开启 5000(python) 端口映射到主机 49153 上&lt;/p>
+&lt;p>可以访问 localhost:49153 到容器的webapp上&lt;/p>
+&lt;ol start="11">
+&lt;li>使用docker port可以指定容器ID或者名字映射到主机端的端口号&lt;/li>
+&lt;/ol>
+&lt;p>sudo docker port nostalgic_morse 5000&lt;/p>
+&lt;p>查看到端口5000映射到容器外的主机端口&lt;/p>
+&lt;ol start="12">
+&lt;li>sudo docker logs -f hungry_stallman&lt;/li>
+&lt;/ol>
+&lt;p>查看容器内应用发生的日志&lt;/p>
+&lt;ol start="13">
+&lt;li>sudo docker top hungry_stallman&lt;/li>
+&lt;/ol>
+&lt;p>查看应用的过程&lt;/p>
+&lt;ol start="14">
+&lt;li>
+&lt;p>使用docker inspect来查看Docker的底层信息。它会返回一个JSON文件记录docker容器的配置和状态信息&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>sudo docker stop hungry_stallman&lt;/p>
+&lt;p>停止容器&lt;/p>
+&lt;p>sudo docker start hungry_stallman&lt;/p>
+&lt;p>重启容器&lt;/p>
+&lt;p>sudo docker rm hungry_stallman&lt;/p>
+&lt;p>删除容器 == 我们不能删除正在运行的容器&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>获取一个新的镜像&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>sudo docker run -t -i training/sinatra /bin/bash&lt;/p>
+&lt;p>进入容器的bash中&lt;/p>
+&lt;ol start="17">
+&lt;li>&lt;/li>
+&lt;/ol>
+&lt;p>运行一个带标签镜像的容器：&lt;/p>
+&lt;p>$ sudo docker run -t -i ubuntu:14.04 /bin/bash&lt;/p>
+&lt;p>例如你只使用Ubuntu，Docker将默认使用Ubuntu:latest镜像。&lt;/p>
+&lt;ol start="18">
+&lt;li>
+&lt;p>sudo docker pull centos 获取新镜像&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如何把多个docker容器连接在一起构建一个完整的应用程序&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;em>HOWTO&lt;/em> 退出docker 保留docker配置&amp;hellip;&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>一开始想着试试 perl6 呢,谁知道配置好 vim (对的, vim 都没有, 也没有图形界面 啊) 退出以后就一切重置了, 难道要按照 DOCKERFILE 什么的步骤走吗??? 以后再看吧. Perl 看来得再找时间看看了.&lt;/p></description></item><item><title>最近学的几个框架</title><link>https://www.peterlau.xyz/posts/flask_ror_node/</link><pubDate>Mon, 11 Aug 2014 18:47:47 +0000</pubDate><guid>https://www.peterlau.xyz/posts/flask_ror_node/</guid><description> &lt;p>最近看读书读的挺多, 大部分都是看的Free电子书和文档, 计算机真是建立在分享上的啊, 光是Free发布的资料就看不完. 的确是&amp;quot;在这个时代能够限制你的只有自己的求知欲&amp;quot;.&lt;/p>
+&lt;p>现在我想说说最近和python, ruby, node玩耍的情况:&lt;/p>
+&lt;p>python 主要是学来用生物信息的, Biopython,结果实在没有实例学着没意思.在玩了几个框架后终于能看下去它的代码了.Python是通用语言, 用在web上也不错, 最近看了 webpy 和 flask, webpy看了看做了一个小项目, 可惜没有大型项目的样例; django 完成了那个入门教程, 感觉后台管理很是强大, 但细节一无所知.知其然不知何以然啊!&lt;/p>
+&lt;p>Flask 大概是我最下力气学的一个框架, 丰富的文档, 完善的组织方式, 值得好好学学.现在看着资料, 卡在权限管理这里, 还是没有很好理解代码之间的关系, 但是终于对web应用的细节更了解了.&lt;/p>
+&lt;p>ruby 真心优雅的语言, 写起来很舒服, 绝对是我的第二选择. 实在不想硬着头皮写静态语言, 除非有性能诱惑和脚本化特点( go ). Ruby的框架老大是ROR,今天下午用了两个小时写了个基本的博客.发布文章和评论, 其他基本功能找时间实现吧, 就是缺时间.写起来很爽快, 各种生成器简直让我不忍再看flask,据说python里的django是和ROR一样的组织方式, 但django可没有这么爽快的体验. 虽然我学习的第一个框架是sinatra, 但还是不能完全理解很多魔法一样的代码, sinatra的细节还是很清晰的展现的. 真想完成一个大型应用啊.ror的RESTful链接也很经典, flask里边要是能加上这个就妙极了. 从资源出发的应用设计.&lt;/p>
+&lt;p>node 高实时高并发.写node当然是从底层开始啊, 虽然刚完成到上传文件, 学起来还是很轻松的.就是&amp;hellip;时间啊.时间.&lt;/p>
+&lt;p>如果一个不是计算机专业毕业的人喜欢写代码, 那么一定是为了满足好奇心的啊.!!!还有找工作&amp;hellip;&lt;/p>
+&lt;p>找工作还是得看看php&amp;hellip;哈哈哈!!!&lt;/p></description></item><item><title>测试Hexo图片</title><link>https://www.peterlau.xyz/posts/test_hexo_image/</link><pubDate>Fri, 18 Apr 2014 21:44:32 +0000</pubDate><guid>https://www.peterlau.xyz/posts/test_hexo_image/</guid><description> &lt;h3 id="图片">图片 &lt;a href="#%e5%9b%be%e7%89%87" class="anchor">🔗&lt;/a>&lt;/h3>&lt;p>&lt;img src="http://t.williamgates.net/thumb-0DD4_53C7517B.jpg" alt="Something" title="GoodGirl">&lt;/p>
+&lt;p>&lt;code>&amp;lt;img src=&amp;quot;http://t.williamgates.net/thumb-0DD4_53C7517B.jpg&amp;quot; style=&amp;quot;width: 500&amp;quot;&amp;gt;&lt;/code>&lt;/p>
+&lt;p>hahaha&lt;/p>
+&lt;p>下一步就是拿flask写个图床放BAE上,搞定!!&lt;/p>
+&lt;h3 id="音频">音频 &lt;a href="#%e9%9f%b3%e9%a2%91" class="anchor">🔗&lt;/a>&lt;/h3>&lt;p>&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>html的方法 暴力&amp;hellip;&lt;/p>
+&lt;p>空这么大一块是由于 video-containter 的 css 造成的, 想修改就得看源码了, 留到以后用吧. 或者用 HTML5 解决.这个方法不错.&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-[html]" data-lang="[html]">&amp;lt;embed src=&amp;#34;http://www.xiami.com/widget/0_3515679/singlePlayer.swf&amp;#34; type=&amp;#34;application/x-shockwave-flash&amp;#34; width=&amp;#34;257&amp;#34; height=&amp;#34;33&amp;#34; wmode=&amp;#34;transparent&amp;#34;&amp;gt;&amp;lt;/embed&amp;gt;
+&lt;/code>&lt;/pre>&lt;h3 id="视频">视频 &lt;a href="#%e8%a7%86%e9%a2%91" class="anchor">🔗&lt;/a>&lt;/h3>&lt;!-- raw HTML omitted -->
+&lt;pre tabindex="0">&lt;code class="language-[html]" data-lang="[html]">&amp;lt;iframe height=498 width=510 src=&amp;#34;http://player.youku.com/embed/XMzEwNTgwMjI4&amp;#34; frameborder=0 allowfullscreen&amp;gt;&amp;lt;/iframe&amp;gt;
+&lt;/code>&lt;/pre>&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item><item><title>Hexo博客使用之旅</title><link>https://www.peterlau.xyz/posts/hexo_beginnermd/</link><pubDate>Fri, 21 Mar 2014 21:55:16 +0000</pubDate><guid>https://www.peterlau.xyz/posts/hexo_beginnermd/</guid><description> &lt;ul>
+&lt;li>Hexo 是什么?&lt;/li>
+&lt;li>五步拥有 Hexo&lt;/li>
+&lt;li>Hexo 工作流程&lt;/li>
+&lt;li>优化配置&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="篇头语">篇头语 &lt;a href="#%e7%af%87%e5%a4%b4%e8%af%ad" class="anchor">🔗&lt;/a>&lt;/h3>&lt;ol>
+&lt;li>Markdown 的语法中注释用 &lt;code>&amp;lt;!-- --&amp;gt;&lt;/code>.&lt;/li>
+&lt;li>hexo new &amp;ldquo;title_here&amp;rdquo; 处理 Hexo 这种带 x 的居然有问题?&lt;/li>
+&lt;li>markdown 简体中文&lt;a href="http://wowubuntu.com/markdown/" title="简体中文版">链接&lt;/a>,好好练习吧!!!&lt;/li>
+&lt;/ol>
+&lt;h3 id="hexo-是什么">Hexo 是什么? &lt;a href="#hexo-%e6%98%af%e4%bb%80%e4%b9%88" class="anchor">🔗&lt;/a>&lt;/h3>&lt;blockquote>
+&lt;p>&lt;a href="https://github.com/tommy351/hexo" title="台湾小伙">tommy351&lt;/a>发布的基于node的静态博客框架.类似 jekyll, 不过是基于 node/nodejs 的.(我是中英混杂痛恨者,文字前标号需空格执行者, 中英标号统一使用者, 标签化信徒.)&lt;/p>
+&lt;/blockquote>
+&lt;p>EMACscript 或者俗称 Javascript 越来越强大了. Js 可以写桌面应用, 写 html, 写 css, 写动画, 写动态图表, 写可视化数据, 写服务器, 几乎无所不能了.这个玩具很好玩.&lt;/p>
+&lt;h3 id="五步安装-hexo-到-gitcafehttpsgitcafecom-天朝代码托管商">五步安装 Hexo 到 &lt;a href="https://gitcafe.com/" title="天朝代码托管商">Gitcafe&lt;/a> &lt;a href="#%e4%ba%94%e6%ad%a5%e5%ae%89%e8%a3%85-hexo-%e5%88%b0-gitcafehttpsgitcafecom-%e5%a4%a9%e6%9c%9d%e4%bb%a3%e7%a0%81%e6%89%98%e7%ae%a1%e5%95%86" class="anchor">🔗&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>第一步: 安装 Node , 感谢 &lt;a href="%22https://www.google.com.hk/search?q=Ryan+Dahl&amp;amp;oq=Ryan+Dahl%22">Ryan Dahl&lt;/a>(每次都要跟 DHH 搞混)&lt;img src="http://nodegeek.net/wp-content/uploads/2013/12/ryan_dahl-300x172.jpg" alt="">&lt;/li>
+&lt;/ul>
+&lt;p>然后你就有了 npm (Node Package Manager) 这个东西. 打开终端 / CMD, 执行&lt;/p>
+&lt;pre>&lt;code> npm install -g hexo
+&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>
+&lt;p>第二步: 在本地博客文件夹中 (例如 ~\hexo) 执行&lt;/p>
+&lt;pre>&lt;code> hexo init
+&lt;/code>&lt;/pre>
+&lt;p>生成基本文件结构. 你可以随便点开看看. 本地预览你的博客:&lt;/p>
+&lt;pre>&lt;code> hexo generate
+hexo server
+&lt;/code>&lt;/pre>
+&lt;p>本地版博客就运行在 &lt;a href="http://localhost:4000">localhost:4000&lt;/a>
+退出还是&lt;code>Ctrl+c&lt;/code>, 恭喜你拥有了一个完全控制的博客了, 可以写写日志,
+记录感悟&amp;hellip;&amp;hellip;但是不发布怎么行?&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>第三步: 发布. 没有发布怎么体现高度呢? 样式, 模板, 动态, 标签云,
+挂件, Wordpress 有的咱都要有!这里就说说发布到 Gitcafe 吧.
+据说有个专门为极客准备的云主机也不错.自己
+&lt;a href="http://www.google.com">谷歌&lt;/a>.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>3.1 注册 &lt;a href="http://gitcafe.com">gitcafe&lt;/a>, &lt;a href="https://help.github.com/articles/generating-ssh-keys" title="帮助看这里">生成 SSH
+公钥&lt;/a>,
+在&lt;a href="https://gitcafe.com/account/public_keys">SSH 公钥管理&lt;/a>
+上传公钥 : &lt;em>*&lt;/em>.pub 文件,&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>3.2 &lt;strong>坑一&lt;/strong> gitcafe 中必须创建一个和用户名相同的公开项目, SSH
+为 &lt;a href="mailto:git@gitcafe.com">git@gitcafe.com&lt;/a>:username/username.git 两段必须一致,&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>3.3 &lt;strong>坑二&lt;/strong> 代码必须提交到 gitcafe 的 gitcafe-pages
+分支才能生成页面, github 是 master 分支.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>3.4 修改 ~\hexo 下 _config.yml, 在结尾 deploy 项添加发布代码:&lt;/p>
+&lt;pre>&lt;code>deploy:
+type: github
+repository: git@gitcafe.com:\*yourname*\/\*yourname*\.git
+branch: \*gitcafe-pages*\
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>3.5 下一步:&lt;/p>
+&lt;pre>&lt;code>hexo generate
+hexo deploy
+&lt;/code>&lt;/pre>
+&lt;p>提示：每次修改本地文件后，需要 &lt;code>hexo generate&lt;/code>
+才能保存.每次使用命令时，都要在 ~/hexo 目录下.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>3.6 可以通过
+&lt;a href="http://yourname.gitcafe.com/">&lt;/a>&lt;a href="http://yourname.gitcafe.com/">http://yourname.gitcafe.com/&lt;/a>
+访问你的博客了. 搭建好了记得通知我哦, 参考下你们的设计.
+我乃设计麻瓜.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>第四步: 学习以下技术:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>git&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>js/node&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>css&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>ps/gimp&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>html&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>markdown&lt;/p>
+&lt;p>然后就可以自在编写你的博客咯.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>第五步: 简化版: Hexo 命令:&lt;/p>
+&lt;ul>
+&lt;li>hexo g == hexo generate&lt;/li>
+&lt;li>hexo d == hexo deploy&lt;/li>
+&lt;li>hexo s == hexo server&lt;/li>
+&lt;li>hexo n &amp;ldquo;new post&amp;rdquo; == hexo new &lt;em>hexo new page title hexo new post title&lt;/em> 默认是 page&lt;/li>
+&lt;li>&lt;a href="http://hexo.io/docs/commands.html">more&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>当心：&lt;/p>
+&lt;p>标签里是 tag:_[tag1,tag2] tag 后要有一个空格 否则编译报错？&lt;/p>
+&lt;h3 id="todo">TODO: &lt;a href="#todo" class="anchor">🔗&lt;/a>&lt;/h3>&lt;ol>
+&lt;li>hexo 日常工作流程;&lt;/li>
+&lt;li>多媒体资源管理, 图片, 音频, 视频;&lt;/li>
+&lt;li>widget 配置;&lt;/li>
+&lt;li>hexo 内部运行机制.&lt;/li>
+&lt;/ol>
+&lt;h3 id="牢骚">牢骚: &lt;a href="#%e7%89%a2%e9%aa%9a" class="anchor">🔗&lt;/a>&lt;/h3>&lt;ol>
+&lt;li>Markdown 不支持图片设置宽高, 自行使用 标签, 自求多福,&lt;/li>
+&lt;li>Markdown 莫名其妙的缩进,
+排版啊.(1&amp;gt;次一级列表只需要比上级多一个空格即可,2&amp;gt;次级列表中的代码缩进要比上一级多一个单位&lt;code>四个空格&lt;/code>),&lt;/li>
+&lt;li>Hexo 版本已经到了 2.4.5 了, 不熟悉代码架构, 添加着附件真困难啊.&lt;/li>
+&lt;/ol>
+&lt;p>感谢以下达人的文章:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="http://zipperary.com/categories/hexo/">zipperary&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://huaoguo.com/work/2013/11/09/%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%88%B0gitcafe.html">huaoguo&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://blog.gitcafe.com/116.html">gitcafe&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://github.com/">github&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://www.google.com/">google&lt;/a> !== 谷歌你又乱入&amp;hellip;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>**感谢 pandoc 帮我把一篇旧文的 HTML 转成 Markdown&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>pandoc -f html -t markdown file.html &amp;gt;&amp;gt; new_markdown.md&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>**感谢 unix 的管道 !==&lt;/li>
+&lt;/ul>
+&lt;p>by &lt;strong>Peter Lau&lt;/strong>&lt;/p></description></item></channel></rss>

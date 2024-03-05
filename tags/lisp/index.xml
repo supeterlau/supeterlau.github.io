@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lisp on CodeMist</title><link>https://www.peterlau.xyz/tags/lisp/</link><description>Recent content in lisp on CodeMist</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 12 Oct 2014 12:30:43 +0000</lastBuildDate><atom:link href="https://www.peterlau.xyz/tags/lisp/index.xml" rel="self" type="application/rss+xml"/><item><title>Hylang 快速指南</title><link>https://www.peterlau.xyz/posts/hylang-quickstart/</link><pubDate>Sun, 12 Oct 2014 12:30:43 +0000</pubDate><guid>https://www.peterlau.xyz/posts/hylang-quickstart/</guid><description> &lt;p>前几天在 &lt;a href="http://xahlee.info/">XahLee&lt;/a> 的博客上看到关于 Ruby 和 Python 的讨论, 说 Python 太要求 oop 形式而又不够 oop ,例如, 没有 &lt;code>3.times&lt;/code> 这种用法, 却有 &lt;code>len(str)&lt;/code> , 而且不够函数式 ( &amp;laquo;黑客与画家&amp;raquo;提到 &amp;ldquo;Perl Python Ruby&amp;rdquo;, 越在后越函数式).&lt;/p>
+&lt;ul>
+&lt;li>Markdown 括号加括号 格式就混乱 尽量少用&lt;/li>
+&lt;/ul>
+&lt;p>今天看到了 Hylang, 一个允许用 Lisp 风格写 Python 的解释器.&lt;/p>
+&lt;p>翻译下5分钟入门:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>(Thanks to Karen Rustad for Cuddles!)&lt;/p>
+&lt;p>快速使用 HY:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>创建 Python 虚拟环境 : &lt;a href="http://andyhelix.gitcafe.com/2014/09/10/have-fun-with-django-on-sae/">见前篇&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>激活虚拟环境&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>从 PyPI 安装 hy: &lt;code>pip install hy&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用&lt;code>hy&lt;/code>打开 REPL&lt;/p>
+&lt;p>&lt;code>=&amp;gt; (print &amp;quot;Hy!&amp;quot;)&lt;/code>&lt;/p>
+&lt;p>&lt;code>Hy!&lt;/code>&lt;/p>
+&lt;p>&lt;code>=&amp;gt; (defn salutationsnm [name] (print (+ &amp;quot;Hy &amp;quot; name &amp;quot;!&amp;quot;)))&lt;/code>&lt;/p>
+&lt;p>&lt;code>=&amp;gt; (salutationsnm &amp;quot;YourName&amp;quot;)&lt;/code>&lt;/p>
+&lt;p>&lt;code>Hy YourName!&lt;/code>&lt;/p>
+&lt;p>etc&lt;/p>
+&lt;p>使用 CTRL + D 退出&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>脚本运行&lt;/p>
+&lt;p>保存&lt;code>(print &amp;quot;I was going to code in python syntax, but then I got hy.&amp;quot;)&lt;/code>为&lt;code>awesome.hy&lt;/code>&lt;/p>
+&lt;p>执行 &lt;code>hy awesome.hy&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>Take a deep breath so as to not hyperventilate&lt;/p>
+&lt;p>Smile villainously and sneak off to your hydeaway and do unspeakable things&lt;/p>
+&lt;p>既然 Python 中有模块支持函数式编程, 这样一种解释器的意义在哪里?&lt;/p>
+&lt;p>对于学习两种语言语法树的转换很有意思吧.&lt;/p></description></item></channel></rss>
