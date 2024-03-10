@@ -13,31 +13,37 @@ Name is invalid&lt;/p>
 &lt;p>&lt;a href="https://stackoverflow.com/questions/41804507/h14-error-in-heroku-no-web-processes-running">https://stackoverflow.com/questions/41804507/h14-error-in-heroku-no-web-processes-running&lt;/a>&lt;/p>
 &lt;p>原因：没有启动 dyno Heroku 最小计算单元&lt;/p>
 &lt;p>如果使用 Procfile 可以用命令&lt;/p>
-&lt;p>heroku ps:scale web=1&lt;/p>
+&lt;pre>&lt;code>heroku ps:scale web=1
+&lt;/code>&lt;/pre>
 &lt;p>对应 Procfile&lt;/p>
-&lt;p>web: gunicorn -w 4 -b 0.0.0.0:$PORT -k gevent main:app&lt;/p>
+&lt;pre>&lt;code>web: gunicorn -w 4 -b 0.0.0.0:$PORT -k gevent main:app
+&lt;/code>&lt;/pre>
 &lt;p>没有用 Procfile 可以去应用 Resources 下&lt;/p>
 &lt;p>&lt;a href="https://dashboard.heroku.com/apps/pure-fjord-97245/resources">https://dashboard.heroku.com/apps/pure-fjord-97245/resources&lt;/a>&lt;/p>
 &lt;p>修改 dyno 状态&lt;/p>
-&lt;p>heroku login -i 保持在终端下登录&lt;/p>
-&lt;p>heroku apps&lt;/p>
-&lt;p>docker-compose build&lt;/p>
+&lt;pre>&lt;code> heroku login -i 保持在终端下登录
+heroku apps
+docker-compose build
+&lt;/code>&lt;/pre>
 &lt;p>Your Ruby version is 2.5.6, but your Gemfile specified 2.5.3&lt;/p>
-&lt;p>Dockerfile
-FROM ruby:2.5 -&amp;gt; FROM ruby:2.5.3&lt;/p>
-&lt;p>docker-compose run &amp;ndash;rm web rails db:create&lt;/p>
-&lt;p>Deployment to Heroku
-$ heroku update beta&lt;br>
+&lt;p>Dockerfile&lt;/p>
+&lt;p>FROM ruby:2.5 -&amp;gt; FROM ruby:2.5.3&lt;/p>
+&lt;pre>&lt;code> docker-compose run --rm web rails db:create
+&lt;/code>&lt;/pre>
+&lt;p>Deployment to Heroku&lt;/p>
+&lt;pre>&lt;code> $ heroku update beta
 $ heroku plugins:install @heroku-cli/plugin-manifest
-$ heroku apps:create &amp;ndash;manifest
-$ heroku addons:create heroku-postgresql:hobby-dev&lt;/p>
+$ heroku apps:create --manifest
+$ heroku addons:create heroku-postgresql:hobby-dev
+&lt;/code>&lt;/pre>
 &lt;p>heroku addons:create heroku-postgresql:hobby-dev -a bebopx_hello-heroku.1&lt;/p>
 &lt;p>heroku addons:create heroku-postgresql:hobby-dev -a pure-fjord-97245&lt;/p>
-&lt;p>$ heroku config:set RAILS_MASTER_KEY=&lt;code>cat config/master.key&lt;/code>
+&lt;pre>&lt;code> $ heroku config:set RAILS_MASTER_KEY=`cat config/master.key`
 $ heroku config:set RACK_ENV=production RAILS_ENV=production
 $ heroku config:set RAILS_SERVE_STATIC_FILES=enabled
 $ heroku config:set WEB_CONCURRENCY=2
-$ heroku config:set LANG=en_US.UTF-8&lt;/p>
+$ heroku config:set LANG=en_US.UTF-8
+&lt;/code>&lt;/pre>
 &lt;p>&lt;a href="https://blog.teamtreehouse.com/deploy-static-site-heroku">https://blog.teamtreehouse.com/deploy-static-site-heroku&lt;/a>&lt;/p></description></item><item><title>管理多个 SSH Key</title><link>https://www.peterlau.xyz/posts/manage-multiple-ssh-key/</link><pubDate>Mon, 16 Sep 2019 13:24:59 +0800</pubDate><guid>https://www.peterlau.xyz/posts/manage-multiple-ssh-key/</guid><description> &lt;p>SSH Key 最大的优势是免输入复杂的密码，一定程度避免中间人攻击。&lt;/p>
 &lt;p>多站点管理可以通过 SSH Config 解决。&lt;/p>
 &lt;p>多站点多账户可以用类似方法。 &lt;a href="https://gist.github.com/jexchan/2351996">https://gist.github.com/jexchan/2351996&lt;/a>&lt;/p>
